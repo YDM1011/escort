@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Devon - Models Map View</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="assets/css/bootstrap-grid.css">
+	<link rel="stylesheet" href="assets/css/bootstrap-reboot.min.css">
+	<!-- Font Awesome Icons -->
+	<link rel="stylesheet" href="assets/css/font-awesome.css">
+	<!-- Ionicons Icons -->
+	<link rel="stylesheet" href="assets/css/ionicons.min.css">
+	<!-- Google Fonts -->
+        <link href="assets/fonts/main-fonts.css" rel="stylesheet">
+	<!-- Slick Slider CSS -->
+	<link rel="stylesheet" href="assets/slick/slick.css">
+	<link rel="stylesheet" href="assets/slick/slick-theme.css">
+	<!-- Custom styles for this template -->
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body>
+	<!-- Navbar -->
+	<header class="header full-width fixed" style="background-image: url('assets/img/placeholder/placeholder_1920x1280.jpg')">
+		<div class="container-fluid">
+			<div class="header-inner">
+				<a href="01_Home.html" class="site-logo">
+					<h1 class="site-logo-title">Devon</h1>
+                                    <h1 class="site-logo-text">model agency</h1>
+				</a>
+				<div class="navigation-wr">
+					<form id="search-form">
+						<input type="search" name="search" class="search" placeholder="Search">
+						<span class="submit-wr">
+							<input type="submit" class="submit">
+						</span>
+					</form>
+					<nav class="navigation">
+						<ul>
+							<li class="menu-item-has-children">
+								<a href="#">Home</a>
+								<span class="sub-menu-toggle"></span>
+								<ul class="sub-menu">
+									<li><a href="01_Home.html">Dark with carousel</a></li>
+									<li><a href="03_Home.html">Dark with find model</a></li>
+									<li><a href="04_Home.html">White version</a></li>
+									<li><a href="25_Search_By_Geo_Map.html">Geo maps regions</a></li>
+								</ul>
+							</li>
+							<li class="menu-item-has-children current-menu-parent">
+								<a href="#">Models</a>
+								<span class="sub-menu-toggle"></span>
+								<ul class="sub-menu">
+									<li><a href="06_Models_Load_More.html">Side version (load more)</a></li>
+									<li><a href="07_Models_Load_More_Alternative.html">Side version (load more) Alt</a></li>
+									<li class="current-menu-item"><a href="09_Models_Map_View.html">Side version (pagination)</a></li>
+									<li><a href="10_Models_Map_Big.html">Side version (pagination) Alt</a></li>
+									<li><a href="08_Models_List.html">List version</a></li>				
+									<li><a href="23_Full_Screen_Map_Search.html">Map search</a></li>
+									<li><a href="24_Alternative_Search_View.html">Map search Alt</a></li>
+								</ul>
+							</li>
+							<li class="menu-item-has-children">
+								<a href="#">About</a>
+								<span class="sub-menu-toggle"></span>
+								<ul class="sub-menu">
+									<li><a href="19_About_Us.html">About us</a></li>
+									<li><a href="15_Contact.html">Contact us</a></li>
+									<li><a href="16_Contact.html">Contact us Alt</a></li>
+									<li><a href="18_Pricing.html">Pricing</a></li>
+								</ul>
+							</li>
+							<li class="menu-item-has-children">
+								<a href="#">Pages</a>
+								<span class="sub-menu-toggle"></span>
+								<ul class="sub-menu">
+									<li><a href="05_Model_Profile.html">Model Profiles</a></li>
+									<li><a href="12_Blog_Grid.html">Blog Grid</a></li>
+									<li><a href="13_Blog_Grid_Alternative.html">Blog Grid Alternative</a></li>
+									<li><a href="12_Blog_Grid_Standart.html">Blog Grid Standart</a></li>
+									<li><a href="12_Blog_Standart.html">Blog Standart</a></li>
+									<li><a href="14_Blog_Open.html">Blog open</a></li>
+									<li><a href="17_FAQ.html">FAQ</a></li>
+									<li><a href="20_Log_In.html">Sign In</a></li>
+									<li><a href="21_Sign_In.html">Register</a></li>
+									<li><a href="26_Search_By_Geo_Map_Full_Screen.html">Geo map</a></li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+					<div class="right-sec-nav d-flex align-items-center">
+						<a href="20_Log_In.html" class="login d-flex align-items-center">
+							<i class="icon ion-ios-person-outline"></i>
+						</a>
+						<div class="lang-menu-wr">
+							<button class="btn lang-toggle">
+								<span>AR</span>
+								<i class="icon ion-ios-arrow-down"></i>
+							</button>
+							<ul class="lang-menu">
+								<li><a href="09_Models_Map_View.html">EN</a></li>
+								<li><a href="#">HR</a></li>
+								<li><a href="#">AR</a></li>
+							</ul>
+						</div>
+					</div>
+					<i class="fa fa-times" aria-hidden="true"></i>
+				</div>	
+				<i class="fa fa-bars" aria-hidden="true"></i>
+			</div>
+		</div>	
+	</header>
+	<!-- End Navbar -->
+	<main>
+		<!-- Models List -->
+		<div class="container-fluid sort-models-wrapper models-map-view columns-3 columns">
+			<div class="row">
+				<div class="col-lg-8 col-xl-7 content-wrapper">
+					<div class="sort-models-header">
+						<header>
+							<div class="filters">
+								<a href="#" class="filter-item">Top rated</a>
+								<a href="#" class="filter-item">Most View</a>
+								<a href="#" class="filter-item">Newest</a>
+							</div>
+							<p class="filter-label">Filters<i class="fa fa-filter" aria-hidden="true"></i></p>
+						</header>
+						<form id="filter-models">
+							<div class="filter-models-inner">
+								<div class="sort-column">
+									<p class="title">Height</p>
+									<div class="sort-properties">
+										<p class="sort-property-item-wr">
+											<label class="sort-property-item">
+												<input type="checkbox" name="height[]" value="up to 170">
+												<span>Up to 170 cm</span>
+											</label>
+										</p>
+										<p class="sort-property-item-wr">
+											<label class="sort-property-item">
+												<input type="checkbox" name="height[]" value="171-180">
+												<span>171 - 180 cm</span>
+											</label>
+										</p>
+										<p class="sort-property-item-wr">
+											<label class="sort-property-item">
+												<input type="checkbox" name="height[]" value="181-190">
+												<span>181 - 190 cm</span>
+											</label>
+										</p>
+										<p class="sort-property-item-wr">
+											<label class="sort-property-item">
+												<input type="checkbox" name="height[]" value="above 191">
+												<span>Above 191 cm</span>
+											</label>
+										</p>
+									</div>
+								</div>
+								<div class="sort-column">
+									<p class="title">Waist</p>
+									<div class="sort-properties">
+										<p class="sort-property-item-wr">
+											<label class="sort-property-item">
+												<input type="checkbox" name="waist[]" value="up to 60">
+												<span>Up to 60 cm</span>
+											</label>
+										</p>
+										<p class="sort-property-item-wr">
+											<label class="sort-property-item">
+												<input type="checkbox" name="waist[]" value="61-65">
+												<span>61 - 65 cm</span>
+											</label>
+										</p>
+										<p class="sort-property-item-wr">
+											<label class="sort-property-item">
+												<input type="checkbox" name="waist[]" value="66-70">
+												<span>66 - 70 cm</span>
+											</label>
+										</p>
+										<p class="sort-property-item-wr">
+											<label class="sort-property-item">
+												<input type="checkbox" name="waist[]" value="above 71">
+												<span>Above 71 cm</span>
+											</label>
+										</p>
+									</div>
+								</div>
+								<div class="sort-column">
+									<p class="title">Bust</p>
+									<div class="sort-properties">
+										<p class="sort-property-item-wr">
+											<label class="sort-property-item">
+												<input type="checkbox" name="bust" value="a">
+												<span>A</span>
+											</label>
+										</p>
+										<p class="sort-property-item-wr">
+											<label class="sort-property-item">
+												<input type="checkbox" name="bust" value="b">
+												<span>B</span>
+											</label>
+										</p>
+										<p class="sort-property-item-wr">
+											<label class="sort-property-item">
+												<input type="checkbox" name="bust" value="c">
+												<span>C</span>
+											</label>
+										</p>
+										<p class="sort-property-item-wr">
+											<label class="sort-property-item">
+												<input type="checkbox" name="bust" value="d">
+												<span>D</span>
+											</label>
+										</p>
+									</div>
+								</div>
+								<div class="sort-column">
+									<p class="title">Age</p>
+									<div class="sort-properties">
+										<p class="sort-property-item-wr">
+											<label class="sort-property-item">
+												<input type="checkbox" name="age[]" value="under 18">
+												<span>Under 18 years</span>
+											</label>
+										</p>
+										<p class="sort-property-item-wr">
+											<label class="sort-property-item">
+												<input type="checkbox" name="age[]" value="18-20">
+												<span>18 - 20 years old</span>
+											</label>
+										</p>
+										<p class="sort-property-item-wr">
+											<label class="sort-property-item">
+												<input type="checkbox" name="age[]" value="21-24">
+												<span>21 - 24 years old</span>
+											</label>
+										</p>
+										<p class="sort-property-item-wr">
+											<label class="sort-property-item">
+												<input type="checkbox" name="age[]" value="over 25">
+												<span>25 years and over</span>
+											</label>
+										</p>
+									</div>
+								</div>
+								<div class="sort-column">
+									<p class="title">Hair</p>
+									<div class="sort-properties">
+										<p class="sort-property-item-wr">
+											<label class="sort-property-item">
+												<input type="checkbox" name="hair" value="blonde">
+												<span>Blonde</span>
+											</label>
+										</p>
+										<p class="sort-property-item-wr">
+											<label class="sort-property-item">
+												<input type="checkbox" name="hair" value="brunette">
+												<span>Brunette</span>
+											</label>
+										</p>
+										<p class="sort-property-item-wr">
+											<label class="sort-property-item">
+												<input type="checkbox" name="hair" value="brown-haired">
+												<span>Brown-haired</span>
+											</label>
+										</p>
+										<p class="sort-property-item-wr">
+											<label class="sort-property-item">
+												<input type="checkbox" name="hair" value="natural">
+												<span>Natural</span>
+											</label>
+										</p>
+									</div>
+								</div>
+								<div class="sort-column">
+									<p class="title">Eyes</p>
+									<div class="sort-properties">
+										<p class="sort-property-item-wr">
+											<label class="sort-property-item">
+												<input type="checkbox" name="eyes" value="green">
+												<span>Green</span>
+											</label>
+										</p>
+										<p class="sort-property-item-wr">
+											<label class="sort-property-item">
+												<input type="checkbox" name="eyes" value="blue">
+												<span>Blue</span>
+											</label>
+										</p>
+										<p class="sort-property-item-wr">
+											<label class="sort-property-item">
+												<input type="checkbox" name="eyes" value="brown">
+												<span>Brown</span>
+											</label>
+										</p>
+										<p class="sort-property-item-wr">
+											<label class="sort-property-item">
+												<input type="checkbox" name="eyes" value="other">
+												<span>Other</span>
+											</label>
+										</p>
+									</div>
+								</div>
+								<div class="sort-column">
+									<p class="title">Rating</p>
+									<div class="sort-properties rating">
+										<p class="sort-property-item-wr">
+											<label class="sort-property-item">
+												<input type="checkbox" name="rating" value="2">
+												<span>
+													<i class="fa fa-star active" aria-hidden="true"></i>
+													<i class="fa fa-star active" aria-hidden="true"></i>
+													<i class="fa fa-star" aria-hidden="true"></i>
+													<i class="fa fa-star" aria-hidden="true"></i>
+													<i class="fa fa-star" aria-hidden="true"></i>
+												</span>
+											</label>
+										</p>
+										<p class="sort-property-item-wr">
+											<label class="sort-property-item">
+												<input type="checkbox" name="rating" value="3">
+												<span>
+													<i class="fa fa-star active" aria-hidden="true"></i>
+													<i class="fa fa-star active" aria-hidden="true"></i>
+													<i class="fa fa-star active" aria-hidden="true"></i>
+													<i class="fa fa-star" aria-hidden="true"></i>
+													<i class="fa fa-star" aria-hidden="true"></i>
+												</span>
+											</label>
+										</p>
+										<p class="sort-property-item-wr">
+											<label class="sort-property-item">
+												<input type="checkbox" name="rating" value="4">
+												<span>
+													<i class="fa fa-star active" aria-hidden="true"></i>
+													<i class="fa fa-star active" aria-hidden="true"></i>
+													<i class="fa fa-star active" aria-hidden="true"></i>
+													<i class="fa fa-star active" aria-hidden="true"></i>
+													<i class="fa fa-star" aria-hidden="true"></i>
+												</span>
+											</label>
+										</p>
+										<p class="sort-property-item-wr">
+											<label class="sort-property-item">
+												<input type="checkbox" name="rating" value="5">
+												<span>
+													<i class="fa fa-star active" aria-hidden="true"></i>
+													<i class="fa fa-star active" aria-hidden="true"></i>
+													<i class="fa fa-star active" aria-hidden="true"></i>
+													<i class="fa fa-star active" aria-hidden="true"></i>
+													<i class="fa fa-star active" aria-hidden="true"></i>
+												</span>
+											</label>
+										</p>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="sort-models">
+						<div class="row justify-content-center">
+							<article class="col-sm-6 col-md-4">
+								<a href="05_Model_Profile.html" class="item-wr">
+									<div class="model-item" style="background-image: url('assets/img/placeholder/placeholder_600x600.jpg')">
+										<div class="model-info">
+											<p>Height: <span>185</span></p>
+											<p>Bust: <span>85</span></p>
+											<p>Waist: <span>60</span></p>
+											<p>Age: <span>17</span></p>
+											<p>Hair: <span>Red</span></p>
+											<p>Eyes: <span>Blue</span></p>
+											<p class="rating">
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+											</p>
+										</div>
+									</div>
+									<h3 class="title">Alexis Rane</h3>
+								</a>
+							</article>
+							<article class="col-sm-6 col-md-4">
+								<a href="05_Model_Profile.html" class="item-wr">
+									<div  class="model-item" style="background-image: url('assets/img/placeholder/placeholder_600x600.jpg')">
+										<div class="model-info">
+											<p>Height: <span>185</span></p>
+											<p>Bust: <span>85</span></p>
+											<p>Waist: <span>60</span></p>
+											<p>Age: <span>17</span></p>
+											<p>Hair: <span>Red</span></p>
+											<p>Eyes: <span>Blue</span></p>
+											<p class="rating">
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+											</p>
+										</div>
+									</div>
+									<h3 class="title">Jena Stain</h3>
+								</a>
+							</article>
+							<article class="col-sm-6 col-md-4">
+								<a href="05_Model_Profile.html" class="item-wr">
+									<div  class="model-item" style="background-image: url('assets/img/placeholder/placeholder_600x600.jpg')">
+										<div class="model-info">
+											<p>Height: <span>185</span></p>
+											<p>Bust: <span>85</span></p>
+											<p>Waist: <span>60</span></p>
+											<p>Age: <span>17</span></p>
+											<p>Hair: <span>Red</span></p>
+											<p>Eyes: <span>Blue</span></p>
+											<p class="rating">
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+											</p>
+										</div>
+									</div>
+									<h3 class="title">Bella Ring</h3>
+								</a>
+							</article>
+							<article class="col-sm-6 col-md-4">
+								<a href="05_Model_Profile.html" class="item-wr">
+									<div  class="model-item" style="background-image: url('assets/img/placeholder/placeholder_600x600.jpg')">
+										<div class="model-info">
+											<p>Height: <span>185</span></p>
+											<p>Bust: <span>85</span></p>
+											<p>Waist: <span>60</span></p>
+											<p>Age: <span>17</span></p>
+											<p>Hair: <span>Red</span></p>
+											<p>Eyes: <span>Blue</span></p>
+											<p class="rating">
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+											</p>
+										</div>
+									</div>
+									<h3 class="title">Amanda Grace</h3>
+								</a>
+							</article>
+							<article class="col-sm-6 col-md-4">
+								<a href="05_Model_Profile.html" class="item-wr">
+									<div  class="model-item" style="background-image: url('assets/img/placeholder/placeholder_600x600.jpg')">
+										<div class="model-info">
+											<p>Height: <span>185</span></p>
+											<p>Bust: <span>85</span></p>
+											<p>Waist: <span>60</span></p>
+											<p>Age: <span>17</span></p>
+											<p>Hair: <span>Red</span></p>
+											<p>Eyes: <span>Blue</span></p>
+											<p class="rating">
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+											</p>
+										</div>
+									</div>
+									<h3 class="title">Julia Strill</h3>
+								</a>
+							</article>
+							<article class="col-sm-6 col-md-4">
+								<a href="05_Model_Profile.html" class="item-wr">
+									<div  class="model-item" style="background-image: url('assets/img/placeholder/placeholder_600x600.jpg')">
+										<div class="model-info">
+											<p>Height: <span>185</span></p>
+											<p>Bust: <span>85</span></p>
+											<p>Waist: <span>60</span></p>
+											<p>Age: <span>17</span></p>
+											<p>Hair: <span>Red</span></p>
+											<p>Eyes: <span>Blue</span></p>
+											<p class="rating">
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+											</p>
+										</div>
+									</div>
+									<h3 class="title">Roberta Green</h3>
+								</a>
+							</article>
+							<article class="col-sm-6 col-md-4">
+								<a href="05_Model_Profile.html" class="item-wr">
+									<div  class="model-item" style="background-image: url('assets/img/placeholder/placeholder_600x600.jpg')">
+										<div class="model-info">
+											<p>Height: <span>185</span></p>
+											<p>Bust: <span>85</span></p>
+											<p>Waist: <span>60</span></p>
+											<p>Age: <span>17</span></p>
+											<p>Hair: <span>Red</span></p>
+											<p>Eyes: <span>Blue</span></p>
+											<p class="rating">
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+											</p>
+										</div>
+									</div>
+									<h3 class="title">Polli Aston</h3>
+								</a>
+							</article>	
+							<article class="col-sm-6 col-md-4">
+								<a href="05_Model_Profile.html" class="item-wr">
+									<div  class="model-item" style="background-image: url('assets/img/placeholder/placeholder_600x600.jpg')">
+										<div class="model-info">
+											<p>Height: <span>185</span></p>
+											<p>Bust: <span>85</span></p>
+											<p>Waist: <span>60</span></p>
+											<p>Age: <span>17</span></p>
+											<p>Hair: <span>Red</span></p>
+											<p>Eyes: <span>Blue</span></p>
+											<p class="rating">
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+											</p>
+										</div>
+									</div>
+									<h3 class="title">Natali Spencer</h3>
+								</a>
+							</article>
+							<article class="col-sm-6 col-md-4">
+								<a href="05_Model_Profile.html" class="item-wr">
+									<div  class="model-item" style="background-image: url('assets/img/placeholder/placeholder_600x600.jpg')">
+										<div class="model-info">
+											<p>Height: <span>185</span></p>
+											<p>Bust: <span>85</span></p>
+											<p>Waist: <span>60</span></p>
+											<p>Age: <span>17</span></p>
+											<p>Hair: <span>Red</span></p>
+											<p>Eyes: <span>Blue</span></p>
+											<p class="rating">
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+												<i class="fa fa-star active" aria-hidden="true"></i>
+											</p>
+										</div>
+									</div>
+									<h3 class="title">Selena Trade</h3>
+								</a>
+							</article>
+						</div>
+						<nav class="pagination">
+							<a href="#" class="page-numbers current">1</a>
+							<a href="#" class="page-numbers">2</a>
+							<a href="#" class="page-numbers">3</a>
+							<a href="#" class="page-numbers next">»</a>
+						</nav>
+					</div>
+				</div>
+				<div class="col-lg-4 col-xl-5 map-wrapper">
+					<div id="map" class="models-load-map"></div>
+				</div>
+			</div>
+		</div>
+		<!-- End Models List -->
+	</main>
+	<!-- Footer -->
+	<footer class="site-footer fluid">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-7">
+					<div class="soc-icons-wrap">
+						<a href="#" class="soc-icon"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+						<a href="#" class="soc-icon"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+						<a href="#" class="soc-icon"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+						<a href="#" class="soc-icon"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+					</div>
+					<p class="copyright">&#169; 2018 Devon</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- End Footer -->
+	<!-- Jquery core -->
+	<script src="assets/js/jquery-3.3.1.min.js"></script>
+	<!-- Slick Slider Core -->
+	<script src="assets/slick/slick.js"></script>
+	<!-- All Sliders Initialization -->
+	<script src='assets/js/slider.js'></script>
+	<!-- Custom -->
+	<script src='assets/js/common.js'></script>
+	<!-- Google Map -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVwc4veKudU0qjYrLrrQXacCkDkcy3AeQ"></script>
+	<script src='assets/js/map.js'></script>
+</body>
+</html>
