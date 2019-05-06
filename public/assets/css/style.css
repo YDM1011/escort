@@ -2935,6 +2935,22 @@ End bootstrap4  changes with mac
   top: 0;
   bottom: 0;
   background-color: rgba(63, 58, 61, 0.85);
+  z-index: 0;
+}
+.hero.over-header::before {
+  content: '';
+  position: absolute;
+  display: block;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-image: url(/assets/img/bg.jpg);
+  object-fit: cover;
+  object-position: center;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
 }
 
 .hero.over-header .over-header-inner {

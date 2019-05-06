@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-control" content="public">
-    <title>Devon - Home Page 01</title>
+    <title>Devon - Home Page 03</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap-grid.css">
     <link rel="stylesheet" href="assets/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-dropdown.min.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap-select.min.css" />
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="assets/css/font-awesome.css">
     <!-- Ionicons Icons -->
@@ -22,10 +23,10 @@
 </head>
 <body>
 <!-- Navbar -->
-<header class="header">
+<header class="header transparent">
     <div class="container">
         <div class="header-inner">
-            <a href="/home" class="site-logo">
+            <a href="01_Home.html" class="site-logo">
                 <h1 class="site-logo-title">Devon</h1>
                 <h1 class="site-logo-text">model agency</h1>
             </a>
@@ -36,8 +37,8 @@
                             <a href="#">Home</a>
                             <span class="sub-menu-toggle"></span>
                             <ul class="sub-menu">
-                                <li class="current-menu-item"><a href="01_Home.html">Dark with carousel</a></li>
-                                <li><a href="03_Home.html">Dark with find model</a></li>
+                                <li><a href="01_Home.html">Dark with carousel</a></li>
+                                <li class="current-menu-item"><a href="03_Home.html">Dark with find model</a></li>
                                 <li><a href="04_Home.html">White version</a></li>
                                 <li><a href="25_Search_By_Geo_Map.html">Geo maps regions</a></li>
                             </ul>
@@ -76,8 +77,8 @@
                                 <li><a href="12_Blog_Standart.html">Blog Standart</a></li>
                                 <li><a href="14_Blog_Open.html">Blog open</a></li>
                                 <li><a href="17_FAQ.html">FAQ</a></li>
-                                <li><a href="/login">Sign In</a></li>
-                                <li><a href="/signin">Register</a></li>
+                                <li><a href="20_Log_In.html">Sign In</a></li>
+                                <li><a href="21_Sign_In.html">Register</a></li>
                                 <li><a href="26_Search_By_Geo_Map_Full_Screen.html">Geo map</a></li>
                             </ul>
                         </li>
@@ -89,7 +90,7 @@
                         <i class="icon ion-ios-search"></i>
                         <input type="submit" class="submit" value="">
                     </form>
-                    <a href="/login" class="login d-flex align-items-center">
+                    <a href="20_Log_In.html" class="login d-flex align-items-center">
                         <i class="icon ion-ios-person-outline"></i>
                     </a>
                     <div class="lang-menu-wr">
@@ -100,7 +101,7 @@
                         <ul class="lang-menu">
                             <li><a href="#">EN</a></li>
                             <li><a href="#">HR</a></li>
-                            <li><a href="01_Home_rtl.html">AR</a></li>
+                            <li><a href="03_Home_rtl.html">AR</a></li>
                         </ul>
                     </div>
                 </div>
@@ -113,470 +114,429 @@
 <!-- End Navbar -->
 <main>
     <!-- Hero -->
-    <div class="hero-slider-wr default-slick-button home-slider">
-        <section class="full-width-bg" style="background-image: url('assets/img/placeholder/placeholder_1920x1200.jpg')">
-            <div class="container">
-                <div class="full-width-bg-inner">
-                    <h2 class="title">Model School</h2>
-                    <p class="sub-title">Make your life successful</p>
-                    <a href="13_Blog_Open_Widget.html" class="btn-classic">Watch Now<i class="icon ion-play"></i></a>
-                </div>
-            </div>
-        </section>
-        <section class="full-width-bg" style="background-image: url('assets/img/placeholder/placeholder_1920x1200.jpg')">
-            <div class="container">
-                <div class="full-width-bg-inner">
-                    <h2 class="title">Become Model</h2>
-                    <p class="sub-title">Make your life successful</p>
-                    <a href="13_Blog_Open_Widget.html" class="btn-classic">Watch Now<i class="icon ion-play"></i></a>
-                </div>
-            </div>
-        </section>
-    </div>
-    <!-- End Hero -->
-    <!-- Popular Models List -->
-    <section class="container popular-models model-section">
-        <h2 class="section-title lines">Popular Models</h2>
-        <div class="row">
-            <article class="col-sm-6 col-lg-3">
-                <a href="05_Model_Profile.html" class="item-wr">
-                    <div  class="model-item" style="background-image: url('assets/img/placeholder/placeholder_900x500.jpg')">
-                        <div class="model-info">
-                            <p>Height: <span>185</span></p>
-                            <p>Bust: <span>85</span></p>
-                            <p>Waist: <span>60</span></p>
-                            <p>Age: <span>17</span></p>
-                            <p>Hair: <span>Red</span></p>
-                            <p>Eyes: <span>Blue</span></p>
-                            <p class="rating">
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                            </p>
-                        </div>
-                    </div>
-                    <h3 class="title">Alexis Rane</h3>
-                </a>
-            </article>
-            <article class="col-sm-6 col-lg-3">
-                <a href="05_Model_Profile.html" class="item-wr">
-                    <div  class="model-item" style="background-image: url('assets/img/placeholder/placeholder_900x500.jpg')">
-                        <div class="model-info">
-                            <p>Height: <span>185</span></p>
-                            <p>Bust: <span>85</span></p>
-                            <p>Waist: <span>60</span></p>
-                            <p>Age: <span>17</span></p>
-                            <p>Hair: <span>Red</span></p>
-                            <p>Eyes: <span>Blue</span></p>
-                            <p class="rating">
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                            </p>
-                        </div>
-                    </div>
-                    <h3 class="title">Jena Stain</h3>
-                </a>
-            </article>
-            <article class="col-sm-6 col-lg-3">
-                <a href="05_Model_Profile.html" class="item-wr">
-                    <div  class="model-item" style="background-image: url('assets/img/placeholder/placeholder_900x500.jpg')">
-                        <div class="model-info">
-                            <p>Height: <span>185</span></p>
-                            <p>Bust: <span>85</span></p>
-                            <p>Waist: <span>60</span></p>
-                            <p>Age: <span>17</span></p>
-                            <p>Hair: <span>Red</span></p>
-                            <p>Eyes: <span>Blue</span></p>
-                            <p class="rating">
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                            </p>
-                        </div>
-                    </div>
-                    <h3 class="title">Bella Ring</h3>
-                </a>
-            </article>
-            <article class="col-sm-6 col-lg-3">
-                <a href="05_Model_Profile.html" class="item-wr">
-                    <div  class="model-item" style="background-image: url('assets/img/placeholder/placeholder_900x500.jpg')">
-                        <div class="model-info">
-                            <p>Height: <span>185</span></p>
-                            <p>Bust: <span>85</span></p>
-                            <p>Waist: <span>60</span></p>
-                            <p>Age: <span>17</span></p>
-                            <p>Hair: <span>Red</span></p>
-                            <p>Eyes: <span>Blue</span></p>
-                            <p class="rating">
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                            </p>
-                        </div>
-                    </div>
-                    <h3 class="title">Amanda Grace</h3>
-                </a>
-            </article>
-            <article class="col-sm-6 col-lg-3">
-                <a href="05_Model_Profile.html" class="item-wr">
-                    <div  class="model-item" style="background-image: url('assets/img/placeholder/placeholder_900x500.jpg')">
-                        <div class="model-info">
-                            <p>Height: <span>185</span></p>
-                            <p>Bust: <span>85</span></p>
-                            <p>Waist: <span>60</span></p>
-                            <p>Age: <span>17</span></p>
-                            <p>Hair: <span>Red</span></p>
-                            <p>Eyes: <span>Blue</span></p>
-                            <p class="rating">
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                            </p>
-                        </div>
-                    </div>
-                    <h3 class="title">Julia Strill</h3>
-                </a>
-            </article>
-            <article class="col-sm-6 col-lg-3">
-                <a href="05_Model_Profile.html" class="item-wr">
-                    <div  class="model-item" style="background-image: url('assets/img/placeholder/placeholder_900x500.jpg')">
-                        <div class="model-info">
-                            <p>Height: <span>185</span></p>
-                            <p>Bust: <span>85</span></p>
-                            <p>Waist: <span>60</span></p>
-                            <p>Age: <span>17</span></p>
-                            <p>Hair: <span>Red</span></p>
-                            <p>Eyes: <span>Blue</span></p>
-                            <p class="rating">
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                            </p>
-                        </div>
-                    </div>
-                    <h3 class="title">Roberta Green</h3>
-                </a>
-            </article>
-            <article class="col-sm-6 col-lg-3">
-                <a href="05_Model_Profile.html" class="item-wr">
-                    <div  class="model-item" style="background-image: url('assets/img/placeholder/placeholder_900x500.jpg')">
-                        <div class="model-info">
-                            <p>Height: <span>185</span></p>
-                            <p>Bust: <span>85</span></p>
-                            <p>Waist: <span>60</span></p>
-                            <p>Age: <span>17</span></p>
-                            <p>Hair: <span>Red</span></p>
-                            <p>Eyes: <span>Blue</span></p>
-                            <p class="rating">
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                            </p>
-                        </div>
-                    </div>
-                    <h3 class="title">Polli Aston</h3>
-                </a>
-            </article>
-            <article class="col-sm-6 col-lg-3">
-                <a href="05_Model_Profile.html" class="item-wr">
-                    <div  class="model-item" style="background-image: url('assets/img/placeholder/placeholder_900x500.jpg')">
-                        <div class="model-info">
-                            <p>Height: <span>185</span></p>
-                            <p>Bust: <span>85</span></p>
-                            <p>Waist: <span>60</span></p>
-                            <p>Age: <span>17</span></p>
-                            <p>Hair: <span>Red</span></p>
-                            <p>Eyes: <span>Blue</span></p>
-                            <p class="rating">
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                                <i class="fa fa-star active" aria-hidden="true"></i>
-                            </p>
-                        </div>
-                    </div>
-                    <h3 class="title">Natali Spencer</h3>
-                </a>
-            </article>
-        </div>
-        <p class="text-center no-margin-bottom">
-            <button class="btn-classic btn-border">Show More</button>
-        </p>
-    </section>
-    <!-- End Popular Models List -->
-    <!-- Full Width Background -->
-    <section class="full-width-bg wrap" style="background-image: url('assets/img/placeholder/placeholder_1920x1200.jpg')">
+    <section class="hero over-header" style="background-image: url('assets/img/placeholder/placeholder_1920x1200.jpg')">
         <div class="container">
-            <div class="full-width-bg-inner">
-                <h2 class="title">Perfect Castings</h2>
-                <p class="sub-title">Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagi ttis sem nibh id elit. Duis sed odio sit amet nibh vulputate.</p>
-                <a href="21_Sign_In.html" class="btn-classic">Get Started</a>
+            <div class="over-header-inner">
+                <h1 class="title">Find Perfect Model</h1>
+                <form class="searh-model">
+						<span class="select-item">
+							<select name="height" id="height" class="selectpicker">
+								<option value="0">Categories</option>
+								<option value="150">Escorts</option>
+								<option value="155">Body Rubs</option>
+								<option value="160">Strippers & Strip Clubs</option>
+								<option value="160">Fetish & Dom</option>
+								<option value="160">TS</option>
+								<option value="160">Male Escorts</option>
+								<option value="160">Phone & Websites</option>
+								<option value="160">Adult Jobs</option>
+							</select>
+						</span>
+                    <span class="select-item">
+							<select name="waist" id="waist" class="selectpicker">
+								<option value="0">Locations</option>
+								<option value="50">All</option>
+								<option value="55">Barrie</option>
+								<option value="60">Belleville</option>
+								<option value="60">Brampton</option>
+							</select>
+						</span>
+                    <span class="select-item">
+							<select name="bust" id="bust" class="selectpicker">
+								<option value="0">Background</option>
+								<option value="45">Asian</option>
+								<option value="50">Black/African Descent</option>
+								<option value="55">Latin/Hispanic</option>
+								<option value="55">East Indian</option>
+								<option value="55">Middle Eastern</option>
+								<option value="55">Mixed</option>
+								<option value="55">Native American</option>
+								<option value="55">Pacific Islander</option>
+								<option value="55">White/Caucasian</option>
+							</select>
+						</span>
+                    <span class="select-item">
+							<select name="age" id="age" class="selectpicker">
+								<option value="0">Age</option>
+								<option value="18">18</option>
+								<option value="19">19</option>
+								<option value="20">20</option>
+							</select>
+						</span>
+                    <span class="select-item">
+							<select name="hair" id="hair" class="selectpicker">
+								<option value="hair">Body</option>
+								<option value="blonde">Slim</option>
+								<option value="black">Athletic</option>
+								<option value="brown">Average</option>
+								<option value="brown">Curvy</option>
+								<option value="brown">A Few Extra Pounds</option>
+								<option value="brown">Full/Owerweight</option>
+								<option value="brown">Other</option>
+							</select>
+						</span>
+                    <span class="select-item">
+							<select name="age" id="eyes" class="selectpicker">
+								<option value="0">Donation</option>
+								<option value="blue">$80</option>
+								<option value="green">$100</option>
+								<option value="brown">$120</option>
+								<option value="brown">$140</option>
+								<option value="brown">$160</option>
+								<option value="brown">$180</option>
+								<option value="brown">$200</option>
+								<option value="brown">$220</option>
+								<option value="brown">$240</option>
+								<option value="brown">$260</option>
+							</select>
+						</span>
+                    <input type="submit" value="Search" class="submit">
+                </form>
             </div>
         </div>
     </section>
-    <!-- End Full Width Background -->
+    <!-- End Hero -->
     <!-- Categories List -->
-    <section class="container categories">
-        <h2 class="section-title lines">Categories</h2>
-        <div class="row">
-            <div class="col-sm-6 col-lg-3">
+    <section class="container categories bigger">
+        <h2 class="section-title lines">Sponsored Ads</h2>
+        <div class="row categories-wr">
+            <div class="col-sm-6 col-lg-4 categories-item-wr">
                 <a href="07_Models_Load_More_Alternative.html" class="category-models-item" style="background-image: url('assets/img/placeholder/placeholder_400x350.jpg')">
-                    <p>Woman</p>
+                    <footer class="categories-item-footer">
+                        <p class="category">Woman</p>
+                        <p class="models-count">5 models</p>
+                    </footer>
                 </a>
             </div>
-            <div class="col-sm-6 col-lg-3">
+            <div class="col-sm-6 col-lg-4 categories-item-wr">
                 <a href="07_Models_Load_More_Alternative.html" class="category-models-item" style="background-image: url('assets/img/placeholder/placeholder_400x350.jpg')">
-                    <p>Trending</p>
+                    <footer class="categories-item-footer">
+                        <p class="category">Trending</p>
+                        <p class="models-count">11 models</p>
+                    </footer>
                 </a>
             </div>
-            <div class="col-sm-6 col-lg-3">
+            <div class="col-sm-6 col-lg-4 categories-item-wr">
                 <a href="07_Models_Load_More_Alternative.html" class="category-models-item" style="background-image: url('assets/img/placeholder/placeholder_400x350.jpg')">
-                    <p>With Video</p>
+                    <footer class="categories-item-footer">
+                        <p class="category">With Video</p>
+                        <p class="models-count">4 models</p>
+                    </footer>
                 </a>
             </div>
-            <div class="col-sm-6 col-lg-3">
+            <div class="col-sm-6 col-lg-4 categories-item-wr">
                 <a href="07_Models_Load_More_Alternative.html" class="category-models-item" style="background-image: url('assets/img/placeholder/placeholder_400x350.jpg')">
-                    <p>Popular</p>
+                    <footer class="categories-item-footer">
+                        <p class="category">Blue Eyes</p>
+                        <p class="models-count">7 models</p>
+                    </footer>
+                </a>
+            </div>
+            <div class="col-sm-6 col-lg-4 categories-item-wr">
+                <a href="07_Models_Load_More_Alternative.html" class="category-models-item" style="background-image: url('assets/img/placeholder/placeholder_400x350.jpg')">
+                    <footer class="categories-item-footer">
+                        <p class="category">Blonde</p>
+                        <p class="models-count">9 models</p>
+                    </footer>
+                </a>
+            </div>
+            <div class="col-sm-6 col-lg-4 categories-item-wr">
+                <a href="07_Models_Load_More_Alternative.html" class="category-models-item" style="background-image: url('assets/img/placeholder/placeholder_400x350.jpg')">
+                    <footer class="categories-item-footer">
+                        <p class="category">European</p>
+                        <p class="models-count">14 models</p>
+                    </footer>
                 </a>
             </div>
         </div>
     </section>
     <!-- End Categories List -->
-    <!-- Recently Featured List -->
-    <section class="container recently-featured">
-        <h2 class="section-title lines">Recently Featured</h2>
-        <div class="row">
-            <div class="recently-featured-slider">
-                <article class="col-md-6 col-lg-4">
-                    <a href="05_Model_Profile.html" class="item-wr">
-                        <div  class="model-item" style="background-image: url('assets/img/placeholder/placeholder_900x500.jpg')">
-                            <div class="model-info">
-                                <p>Height: <span>185</span></p>
-                                <p>Bust: <span>85</span></p>
-                                <p>Waist: <span>60</span></p>
-                                <p>Age: <span>17</span></p>
-                                <p>Hair: <span>Red</span></p>
-                                <p>Eyes: <span>Blue</span></p>
-                                <p class="rating">
-                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                </p>
-                            </div>
-                        </div>
-                        <h3 class="title">Selena Trade</h3>
-                    </a>
-                </article>
-                <article class="col-md-6 col-lg-4">
-                    <a href="05_Model_Profile.html" class="item-wr">
-                        <div  class="model-item" style="background-image: url('assets/img/placeholder/placeholder_900x500.jpg')">
-                            <div class="model-info">
-                                <p>Height: <span>185</span></p>
-                                <p>Bust: <span>85</span></p>
-                                <p>Waist: <span>60</span></p>
-                                <p>Age: <span>17</span></p>
-                                <p>Hair: <span>Red</span></p>
-                                <p>Eyes: <span>Blue</span></p>
-                                <p class="rating">
-                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                </p>
-                            </div>
-                        </div>
-                        <h3 class="title">Jennis Griffin</h3>
-                    </a>
-                </article>
-                <article class="col-md-6 col-lg-4">
-                    <a href="05_Model_Profile.html" class="item-wr">
-                        <div  class="model-item" style="background-image: url('assets/img/placeholder/placeholder_900x500.jpg')">
-                            <div class="model-info">
-                                <p>Height: <span>185</span></p>
-                                <p>Bust: <span>85</span></p>
-                                <p>Waist: <span>60</span></p>
-                                <p>Age: <span>17</span></p>
-                                <p>Hair: <span>Red</span></p>
-                                <p>Eyes: <span>Blue</span></p>
-                                <p class="rating">
-                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                </p>
-                            </div>
-                        </div>
-                        <h3 class="title">Alesandra Andorio</h3>
-                    </a>
-                </article>
-                <article class="col-md-6 col-lg-4">
-                    <a href="05_Model_Profile.html" class="item-wr">
-                        <div  class="model-item" style="background-image: url('assets/img/placeholder/placeholder_900x500.jpg')">
-                            <div class="model-info">
-                                <p>Height: <span>185</span></p>
-                                <p>Bust: <span>85</span></p>
-                                <p>Waist: <span>60</span></p>
-                                <p>Age: <span>17</span></p>
-                                <p>Hair: <span>Red</span></p>
-                                <p>Eyes: <span>Blue</span></p>
-                                <p class="rating">
-                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                    <i class="fa fa-star active" aria-hidden="true"></i>
-                                </p>
-                            </div>
-                        </div>
-                        <h3 class="title">Jennis Griffin</h3>
-                    </a>
-                </article>
-            </div>
-        </div>
-    </section>
-    <!-- End Recently Featured List -->
-    <!-- Testimonials -->
-    <div class="full-width-bg testimonials" style="background-image: url('assets/img/placeholder/placeholder_1920x1200.jpg')">
-        <div class="container">
-            <div class="full-width-bg-inner">
-                <p class="quotes lines">“</p>
-                <div class="testimonials-slider">
-                    <article class="testimonial-item">
-                        <p class="testimonial-content">
-                            Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Namnec odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat contorun elit.
-                        </p>
-                        <div class="testimonial-author">
-                            <h4 class="name">Gloria Simson</h4>
-                            <p class="position">Manager</p>
-                        </div>
-                    </article>
-                    <article class="testimonial-item">
-                        <p class="testimonial-content">
-                            Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Namnec odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat contorun elit.
-                        </p>
-                        <div class="testimonial-author">
-                            <h4 class="name">Gloria Simson</h4>
-                            <p class="position">Manager</p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Testimonials -->
-    <!-- Last Posts -->
-    <section class="container last-posts">
-        <h2 class="section-title lines">Latest From Journal</h2>
-        <div class="row">
-            <article class="col-md-6 last-post-wr">
-                <a href="13_Blog_Open_Widget.html" class="post-item no-decoration">
-                    <figure class="post-image" style="background-image: url('assets/img/placeholder/placeholder_700x600.jpg')">
-                        <div class="info">
-                            <p class="post-btn">View post</p>
-                            <p class="post-publish">
-                                <span class="publish-date">Dec 25, 2017</span>
-                                <span class="separator">·</span>
-                                <span class="publish-time">1 Minute</span>
-                            </p>
-                        </div>
-                    </figure>
-                    <footer class="post-footer">
-                        <p class="post-category">Agency</p>
-                        <h3 class="post-title">Perfect Fashion Show</h3>
-                    </footer>
-                </a>
-            </article>
-            <article class="col-md-6 last-post-wr">
-                <a href="13_Blog_Open_Widget.html" class="post-item no-decoration">
-                    <figure class="post-image" style="background-image: url('assets/img/placeholder/placeholder_700x600.jpg')">
-                        <div class="info">
-                            <p class="post-btn">View post</p>
-                            <p class="post-publish">
-                                <span class="publish-date">Dec 25, 2017</span>
-                                <span class="separator">·</span>
-                                <span class="publish-time">1 Minute</span>
-                            </p>
-                        </div>
-                    </figure>
-                    <footer class="post-footer">
-                        <p class="post-category">Ashion</p>
-                        <h3 class="post-title">Changing Style WIth Makeup</h3>
-                    </footer>
-                </a>
-            </article>
-        </div>
-    </section>
-    <!-- End Last Posts -->
-    <!-- Agancies List -->
-    <div class="container agancy">
-        <div class="agancy-logo-wr">
-            <a href="05_Model_Profile.html" class="agancy-logo">
-                <p>Models</p>
-                <p>agency logo</p>
-            </a>
-            <a href="05_Model_Profile.html" class="agancy-logo">
-                <p>Models</p>
-                <p>agency logo</p>
-            </a>
-            <a href="05_Model_Profile.html" class="agancy-logo">
-                <p>Models</p>
-                <p>agency logo</p>
-            </a>
-            <a href="05_Model_Profile.html" class="agancy-logo">
-                <p>Models</p>
-                <p>agency logo</p>
-            </a>
-            <a href="05_Model_Profile.html" class="agancy-logo">
-                <p>Models</p>
-                <p>agency logo</p>
-            </a>
-            <a href="05_Model_Profile.html" class="agancy-logo">
-                <p>Models</p>
-                <p>agency logo</p>
-            </a>
-            <a href="05_Model_Profile.html" class="agancy-logo">
-                <p>Models</p>
-                <p>agency logo</p>
-            </a>
-        </div>
-    </div>
-    <!-- End Agancies List -->
+    <!-- Review -->
+    <!--<div class="container-fluid full-screen-quote">-->
+        <!--<div class="row">-->
+            <!--<div class="col-md-6">-->
+                <!--<div class="full-screen-quote-text">-->
+                    <!--<p class="quotes">“</p>-->
+                    <!--<p class="description">Proin gravida nibh vel velit auctor aliquet. Aenean-->
+                        <!--sollicitudin, lorem quis bibendum auctor, nisi elit conse quat ipsum, nec sagittis sem nibh id elit duis sed.-->
+                    <!--</p>-->
+                    <!--<address class="author">Jena Stain</address>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-md-6 author-img-wr">-->
+                <!--<img src="assets/img/placeholder/placeholder_900x500.jpg" alt="" class="author-img">-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!-- End Review -->
+    <!-- Popular Models List -->
+    <!--<section class="container popular-models model-row-wrap">-->
+        <!--<h2 class="section-title lines">Popular Models</h2>-->
+        <!--<article class="model-row">-->
+            <!--<div class="row">-->
+                <!--<div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-xl-2 offset-xl-0">-->
+                    <!--<a href="05_Model_Profile.html" class="img-wr">-->
+                        <!--<img src="assets/img/placeholder/placeholder_400x350.jpg" alt="">-->
+                    <!--</a>-->
+                <!--</div>-->
+                <!--<div class="col-xl-6">-->
+                    <!--<div class="row-model-info">-->
+                        <!--<h3 class="title">-->
+                            <!--<a href="05_Model_Profile.html">Alexis Rane</a>-->
+                        <!--</h3>-->
+                        <!--<div class="model-attr">-->
+                            <!--<p class="attr-item">-->
+                                <!--<span class="attr-name">Height:</span>-->
+                                <!--<span class="attr-value">185</span>-->
+                            <!--</p>-->
+                            <!--<p class="attr-item">-->
+                                <!--<span class="attr-name">Bust:</span>-->
+                                <!--<span class="attr-value">85</span>-->
+                            <!--</p>-->
+                            <!--<p class="attr-item">-->
+                                <!--<span class="attr-name">Waist:</span>-->
+                                <!--<span class="attr-value">60</span>-->
+                            <!--</p>-->
+                            <!--<p class="attr-item">-->
+                                <!--<span class="attr-name">Age:</span>-->
+                                <!--<span class="attr-value">17</span>-->
+                            <!--</p>-->
+                            <!--<p class="attr-item">-->
+                                <!--<span class="attr-name">Heir:</span>-->
+                                <!--<span class="attr-value">Red</span>-->
+                            <!--</p>-->
+                            <!--<p class="attr-item">-->
+                                <!--<span class="attr-name">Eyes:</span>-->
+                                <!--<span class="attr-value">Blue</span>-->
+                            <!--</p>-->
+                        <!--</div>-->
+                        <!--<p class="rating">-->
+                            <!--<i class="fa fa-star active" aria-hidden="true"></i>-->
+                            <!--<i class="fa fa-star active" aria-hidden="true"></i>-->
+                            <!--<i class="fa fa-star active" aria-hidden="true"></i>-->
+                            <!--<i class="fa fa-star active" aria-hidden="true"></i>-->
+                            <!--<i class="fa fa-star active" aria-hidden="true"></i>-->
+                        <!--</p>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-xl-2">-->
+                    <!--<p class="soc-icons-wr">-->
+                        <!--<a href="#" class="soc-icon"><i class="fa fa-instagram" aria-hidden="true"></i></a>-->
+                        <!--<a href="#" class="soc-icon"><i class="fa fa-twitter" aria-hidden="true"></i></a>-->
+                    <!--</p>-->
+                <!--</div>-->
+                <!--<div class="col-xl-2">-->
+                    <!--<p class="soc-icons-wr big">-->
+                        <!--<a href="#" class="soc-icon"><i class="icon ion-android-favorite"></i></a>-->
+                        <!--<a href="#" class="soc-icon"><i class="icon ion-ios-email-outline"></i></a>-->
+                    <!--</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</article>-->
+        <!--<article class="model-row">-->
+            <!--<div class="row">-->
+                <!--<div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-xl-2 offset-xl-0">-->
+                    <!--<a href="05_Model_Profile.html" class="img-wr">-->
+                        <!--<img src="assets/img/placeholder/placeholder_400x350.jpg" alt="">-->
+                    <!--</a>-->
+                <!--</div>-->
+                <!--<div class="col-xl-6">-->
+                    <!--<div class="row-model-info">-->
+                        <!--<h3 class="title">-->
+                            <!--<a href="05_Model_Profile.html">Alexis Rane</a>-->
+                        <!--</h3>-->
+                        <!--<div class="model-attr">-->
+                            <!--<p class="attr-item">-->
+                                <!--<span class="attr-name">Height:</span>-->
+                                <!--<span class="attr-value">185</span>-->
+                            <!--</p>-->
+                            <!--<p class="attr-item">-->
+                                <!--<span class="attr-name">Bust:</span>-->
+                                <!--<span class="attr-value">85</span>-->
+                            <!--</p>-->
+                            <!--<p class="attr-item">-->
+                                <!--<span class="attr-name">Waist:</span>-->
+                                <!--<span class="attr-value">60</span>-->
+                            <!--</p>-->
+                            <!--<p class="attr-item">-->
+                                <!--<span class="attr-name">Age:</span>-->
+                                <!--<span class="attr-value">17</span>-->
+                            <!--</p>-->
+                            <!--<p class="attr-item">-->
+                                <!--<span class="attr-name">Heir:</span>-->
+                                <!--<span class="attr-value">Red</span>-->
+                            <!--</p>-->
+                            <!--<p class="attr-item">-->
+                                <!--<span class="attr-name">Eyes:</span>-->
+                                <!--<span class="attr-value">Blue</span>-->
+                            <!--</p>-->
+                        <!--</div>-->
+                        <!--<p class="rating">-->
+                            <!--<i class="fa fa-star active" aria-hidden="true"></i>-->
+                            <!--<i class="fa fa-star active" aria-hidden="true"></i>-->
+                            <!--<i class="fa fa-star active" aria-hidden="true"></i>-->
+                            <!--<i class="fa fa-star active" aria-hidden="true"></i>-->
+                            <!--<i class="fa fa-star active" aria-hidden="true"></i>-->
+                        <!--</p>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-xl-2">-->
+                    <!--<p class="soc-icons-wr">-->
+                        <!--<a href="#" class="soc-icon"><i class="fa fa-instagram" aria-hidden="true"></i></a>-->
+                        <!--<a href="#" class="soc-icon"><i class="fa fa-twitter" aria-hidden="true"></i></a>-->
+                        <!--<a href="#" class="soc-icon"><i class="fa fa-facebook" aria-hidden="true"></i></a>-->
+                    <!--</p>-->
+                <!--</div>-->
+                <!--<div class="col-xl-2">-->
+                    <!--<p class="soc-icons-wr big">-->
+                        <!--<a href="#" class="soc-icon"><i class="icon ion-android-favorite"></i></a>-->
+                        <!--<a href="#" class="soc-icon"><i class="icon ion-ios-email-outline"></i></a>-->
+                    <!--</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</article>-->
+        <!--<article class="model-row">-->
+            <!--<div class="row">-->
+                <!--<div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-xl-2 offset-xl-0">-->
+                    <!--<a href="05_Model_Profile.html" class="img-wr">-->
+                        <!--<img src="assets/img/placeholder/placeholder_400x350.jpg" alt="">-->
+                    <!--</a>-->
+                <!--</div>-->
+                <!--<div class="col-xl-6">-->
+                    <!--<div class="row-model-info">-->
+                        <!--<h3 class="title">-->
+                            <!--<a href="05_Model_Profile.html">Alexis Rane</a>-->
+                        <!--</h3>-->
+                        <!--<div class="model-attr">-->
+                            <!--<p class="attr-item">-->
+                                <!--<span class="attr-name">Height:</span>-->
+                                <!--<span class="attr-value">185</span>-->
+                            <!--</p>-->
+                            <!--<p class="attr-item">-->
+                                <!--<span class="attr-name">Bust:</span>-->
+                                <!--<span class="attr-value">85</span>-->
+                            <!--</p>-->
+                            <!--<p class="attr-item">-->
+                                <!--<span class="attr-name">Waist:</span>-->
+                                <!--<span class="attr-value">60</span>-->
+                            <!--</p>-->
+                            <!--<p class="attr-item">-->
+                                <!--<span class="attr-name">Age:</span>-->
+                                <!--<span class="attr-value">17</span>-->
+                            <!--</p>-->
+                            <!--<p class="attr-item">-->
+                                <!--<span class="attr-name">Heir:</span>-->
+                                <!--<span class="attr-value">Red</span>-->
+                            <!--</p>-->
+                            <!--<p class="attr-item">-->
+                                <!--<span class="attr-name">Eyes:</span>-->
+                                <!--<span class="attr-value">Blue</span>-->
+                            <!--</p>-->
+                        <!--</div>-->
+                        <!--<p class="rating">-->
+                            <!--<i class="fa fa-star active" aria-hidden="true"></i>-->
+                            <!--<i class="fa fa-star active" aria-hidden="true"></i>-->
+                            <!--<i class="fa fa-star active" aria-hidden="true"></i>-->
+                            <!--<i class="fa fa-star active" aria-hidden="true"></i>-->
+                            <!--<i class="fa fa-star active" aria-hidden="true"></i>-->
+                        <!--</p>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-xl-2">-->
+                    <!--<p class="soc-icons-wr">-->
+                        <!--<a href="#" class="soc-icon"><i class="fa fa-instagram" aria-hidden="true"></i></a>-->
+                    <!--</p>-->
+                <!--</div>-->
+                <!--<div class="col-xl-2">-->
+                    <!--<p class="soc-icons-wr big">-->
+                        <!--<a href="#" class="soc-icon"><i class="icon ion-android-favorite"></i></a>-->
+                        <!--<a href="#" class="soc-icon"><i class="icon ion-ios-email-outline"></i></a>-->
+                    <!--</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</article>-->
+    <!--</section>-->
+    <!-- End Popular Models List -->
+    <!-- Last Post List -->
+    <!--<section class="container last-posts small">-->
+        <!--<h2 class="section-title lines">Journal</h2>-->
+        <!--<div class="row justify-content-center">-->
+            <!--<article class="col-md-6 col-lg-4 last-post-wr">-->
+                <!--<a href="13_Blog_Open_Widget.html" class="post-item no-decoration">-->
+                    <!--<figure class="post-image" style="background-image: url('assets/img/placeholder/placeholder_700x600.jpg')">-->
+                        <!--<div class="info">-->
+                            <!--<p class="post-btn">View post</p>-->
+                            <!--<p class="post-publish">-->
+                                <!--<span class="publish-date">Dec 25, 2017</span>-->
+                                <!--<span class="separator">·</span>-->
+                                <!--<span class="publish-time">1 Minute</span>-->
+                            <!--</p>-->
+                        <!--</div>-->
+                    <!--</figure>-->
+                    <!--<footer class="post-footer">-->
+                        <!--<p class="post-category">Agency</p>-->
+                        <!--<h3 class="post-title">Perfect Fashion Show</h3>-->
+                    <!--</footer>-->
+                <!--</a>-->
+            <!--</article>-->
+            <!--<article class="col-md-6 col-lg-4 last-post-wr">-->
+                <!--<a href="13_Blog_Open_Widget.html" class="post-item no-decoration">-->
+                    <!--<figure class="post-image" style="background-image: url('assets/img/placeholder/placeholder_700x600.jpg')">-->
+                        <!--<div class="info">-->
+                            <!--<p class="post-btn">View post</p>-->
+                            <!--<p class="post-publish">-->
+                                <!--<span class="publish-date">Dec 25, 2017</span>-->
+                                <!--<span class="separator">·</span>-->
+                                <!--<span class="publish-time">1 Minute</span>-->
+                            <!--</p>-->
+                        <!--</div>-->
+                    <!--</figure>-->
+                    <!--<footer class="post-footer">-->
+                        <!--<p class="post-category">Ashion</p>-->
+                        <!--<h3 class="post-title">Changing Style WIth Makeup</h3>-->
+                    <!--</footer>-->
+                <!--</a>-->
+            <!--</article>-->
+            <!--<article class="col-md-6 col-lg-4 last-post-wr">-->
+                <!--<a href="13_Blog_Open_Widget.html" class="post-item no-decoration">-->
+                    <!--<figure class="post-image" style="background-image: url('assets/img/placeholder/placeholder_700x600.jpg')">-->
+                        <!--<div class="info">-->
+                            <!--<p class="post-btn">View post</p>-->
+                            <!--<p class="post-publish">-->
+                                <!--<span class="publish-date">Dec 25, 2017</span>-->
+                                <!--<span class="separator">·</span>-->
+                                <!--<span class="publish-time">1 Minute</span>-->
+                            <!--</p>-->
+                        <!--</div>-->
+                    <!--</figure>-->
+                    <!--<footer class="post-footer">-->
+                        <!--<p class="post-category">Agency</p>-->
+                        <!--<h3 class="post-title">Perfect Fashion Show</h3>-->
+                    <!--</footer>-->
+                <!--</a>-->
+            <!--</article>-->
+        <!--</div>-->
+    <!--</section>-->
+    <!-- End Last Post List -->
 </main>
 <!-- Footer -->
 <footer class="site-footer">
-    <div class="container">
-        <div class="soc-icons-wrap">
-            <a href="#" class="soc-icon"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-            <a href="#" class="soc-icon"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-            <a href="#" class="soc-icon"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-            <a href="#" class="soc-icon"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-        </div>
-        <p class="copyright">&#169; 2018 Devon</p>
-    </div>
+    <!--<div class="container">-->
+        <!--<div class="soc-icons-wrap">-->
+            <!--<a href="#" class="soc-icon"><i class="fa fa-facebook" aria-hidden="true"></i></a>-->
+            <!--<a href="#" class="soc-icon"><i class="fa fa-instagram" aria-hidden="true"></i></a>-->
+            <!--<a href="#" class="soc-icon"><i class="fa fa-twitter" aria-hidden="true"></i></a>-->
+            <!--<a href="#" class="soc-icon"><i class="fa fa-pinterest" aria-hidden="true"></i></a>-->
+
+        <!--</div>-->
+        <!--<p class="copyright">&#169; 2018 Devon</p>-->
+    <!--</div>-->
 </footer>
 <!-- End Footer -->
 <!-- Jquery core -->
 <script src="assets/js/jquery-3.3.1.min.js"></script>
+<script src="assets/js/bootstrap-dropdown.min.js"></script>
+<script src="assets/js/bootstrap-select.min.js"></script>
 <!-- Slick Slider Core -->
 <script src="assets/slick/slick.js"></script>
 <!-- All Sliders Initialization -->
