@@ -6417,4 +6417,29 @@ End bootstrap4  changes with mac
     width: 100%;
     height: 45px;
   }
+  /****/
+  .searh-model{
+    display: flex;
+    flex-direction: column;
+
+  }
+  .select-item .bootstrap-select >
+  .dropdown-menu.open,
+  .dropdown-menu.open{
+    position: absolute;
+    right: -5px;
+    transform: translateX(100%);
+    top: 5px;
+    overflow: auto!important;
+  }
+  .dropdown-menu.inner{
+    width: calc(100% + 20px);
+    max-width: initial;
+    overflow: hidden;
+    display: block;
+  }
+}
+/**********/
+.dropdown-menu.open{
+  width: auto!important;
 }
