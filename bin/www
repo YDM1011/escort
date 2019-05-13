@@ -12,7 +12,7 @@ const config = require('../app/config/config');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(config.port);
+var port = normalizePort(8080||config.port);
 app.set('port', port);
 
 /**
@@ -76,6 +76,19 @@ function onError(error) {
       throw error;
   }
 }
+
+var net = require('net')
+
+var server2 = net.createServer(function(socket) {
+    socket.on("connect",function() {
+      console.log("Connect");
+
+        var str = JSON.stringify({foo : 'test', msg : 'did you get it ?'}) + "\n";
+        console.log(str);
+        console.log(socket);
+        socket.write(str)
+    });
+}).listen(3000);
 
 /**
  * Event listener for HTTP server "listening" event.
