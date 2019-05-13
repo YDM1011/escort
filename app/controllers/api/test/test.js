@@ -1,7 +1,7 @@
 const fs = require('fs');
 module.exports = function (backendApp, router) {
 
-    router.post('/tests', [], function (req, res, next) {
+    router.post('/', [], function (req, res, next) {
         console.log("ok2");
         console.log(req.headers);
         console.log(req.body);

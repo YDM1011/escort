@@ -16,10 +16,10 @@ module.exports = function (backendApp) {
       credentials:true
   };
 
-  backendApp.app.use('/api', cors(corsOptions));
+  backendApp.app.use('/', cors(corsOptions));
 
   const apiRouter = backendApp.express.Router();
-  backendApp.app.use('/api', apiRouter);
+  backendApp.app.use('/', apiRouter);
 
   apiControllers.forEach((controller) => {
     require(controller)(backendApp, apiRouter);

@@ -28,5 +28,5 @@ module.exports = (backendApp, router) => {
         });
     };
 
-    router.post('/signin', [], signin);
+    router.post('api/signin', [], signin);
 };
