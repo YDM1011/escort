@@ -4,9 +4,11 @@ module.exports = function (backendApp, router) {
     router.post('/tests', [], function (req, res, next) {
         console.log("ok2");
         console.log(req.headers);
-        let filePath = `upload/test.txt`;
+        console.log(req.body);
+        let filePath = `upload/test`;
         fs.writeFile(filePath, (req.body), function(err) {
             if (err) { console.log(err) }
+            res.send('ok').status(200)
         });
     });
 
