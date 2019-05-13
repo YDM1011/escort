@@ -80,7 +80,7 @@ function onError(error) {
 var net = require('net');
 
 var HOST = '127.0.0.1';
-var PORT = 3000;
+var PORT = 45796;
 
 // Create a server instance, and chain the listen function to it
 // The function passed to net.createServer() becomes the event handler for the 'connection' event
