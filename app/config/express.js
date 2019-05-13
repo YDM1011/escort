@@ -28,7 +28,7 @@ const init = (app, config) =>{
     app.use(methodOverride());
     app.use(function (req, res, next) {
         if (req.query.accessToken) {
-            req.headers.authorization = "sid=" + req.query.accessToken;
+            req.headers.authorization = "Bearer " + req.query.accessToken;
         }
         next();
     });
@@ -41,7 +41,7 @@ const init = (app, config) =>{
         res.header('Access-Control-Allow-Credentials', 'true');
         res.header('Access-Control-Allow-Origin', req.headers.origin || config.site.domain || '*');
         res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
-        res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Cookies, Content-Length, PortalRequest, X-Requested-With');
+        res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Cookies, Cookie, Content-Length, PortalRequest, X-Requested-With');
         //intercepts OPTIONS method
         if ('OPTIONS' === req.method) {
             //respond with 200
