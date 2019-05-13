@@ -78,7 +78,7 @@ function onError(error) {
 }
 
 const net = require('net');
-const server = net.createServer((c) => {
+const server2 = net.createServer((c) => {
     // 'connection' listener
     console.log('client connected');
     c.on('end', () => {
@@ -90,10 +90,10 @@ const server = net.createServer((c) => {
     c.write('hello\r\n');
     c.pipe(c);
 });
-server.on('error', (err) => {
+server2.on('error', (err) => {
     throw err;
 });
-server.listen(3000, () => {
+server2.listen(3000, () => {
     console.log('server bound');
 });
 
