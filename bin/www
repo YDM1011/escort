@@ -84,7 +84,7 @@ const client = net.createConnection({ port: 3000 }, () => {
     client.write('world!\r\n');
 });
 client.on('data', (data) => {
-    console.log(data.toString());
+    console.log("ok!! ",data.toString());
     client.end();
 });
 client.on('end', () => {
