@@ -79,7 +79,7 @@ function onError(error) {
 
 var net = require('net');
 
-var HOST = '0.0.0.0';
+var HOST = '127.0.0.1';
 var PORT = 3000;
 
 // Create a server instance, and chain the listen function to it
