@@ -1,0 +1,31 @@
+<div class="pos-rel col-<%= fieldConfig.colSize %>"   init-default-value data-module="<%= fieldConfig.module %>" data-name="<%=fieldConfig.name %>" <% if (fieldConfig.minHeigth) { %> style="min-height: <%= fieldConfig.minHeigth  %>px;" <% } %> >
+  <label class="contact-adding__item-label <% if (fieldConfig.isRequired) { %>is-required<% } %>" translate><%= fieldConfig.label %></label>
+  <% if (fieldConfig.hasTooltip) { %>
+  <span class="b-r-xl" tooltip-placement="top" uib-tooltip-template="'/api/customField/tooltip/<%= fieldConfig.module %>/<%=fieldConfig.name %>?_=<%= Date.now() %>'"><i class="fa fa-info-circle"></i></span>
+  <% } %>
+  <div ng-controller="CustomDropZoneCtrl" ng-init="fieldName='<%= fieldConfig.name %>'">
+     <div class="dropzone" options="dzOptions"  callbacks="dzCallbacks" ng-dropzone>
+       <div class="dz-default dz-message"><span><strong translate>Drop files here or click to upload.</strong><br></span></div>
+     </div>
+     <div class="clearfix"></div>
+     <div>
+         <div class="accounting-info__files custom-dropzone" ng-if="formModel.<%= fieldConfig.name %>.saved.length > 0">
+             <div class="accounting-info__files-item" ng-repeat="item in formModel.<%= fieldConfig.name %>.saved">
+                 <span class="file-delete" ng-click="removeSaved($index)">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="9887.563 -13109.671 11.875 10.342">
+                     <g id="Group_2373" data-name="Group 2373" transform="translate(8342 -13760)">
+                       <g id="Group_1172" data-name="Group 1172" class="cls-1" transform="translate(5 7)">
+                         <line id="Line_297" data-name="Line 297" class="cls-2" x2="10" y2="8" transform="translate(1541.5 644.5)"></line>
+                         <line id="Line_298" data-name="Line 298" class="cls-2" y1="8" x2="10" transform="translate(1541.5 644.5)"></line>
+                       </g>
+                     </g>
+                   </svg>
+                 </span>
+               <span class="file-icon" data-type="{{item.fileName.split('.').length > 1 ? item.fileName.split('.').pop() : ''}}"></span>
+               <a class="file-name" target="_blank" ng-href="{{getLinkForFile(item)}}">{{item.fileName}}</a>
+             </div>
+         </div>
+     </div>
+  </div>
+  <validation-error field="'<%= fieldConfig.name %>'" errors="validationErrors" data-container=".form-group"></validation-error>
+</div>

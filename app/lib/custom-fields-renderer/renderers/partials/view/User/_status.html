@@ -1,0 +1,9 @@
+<div class="col-<%= fieldConfig.colSize %>">
+  <div class="contact-general__info-item">
+    <div class="contact-general__info-head" translate>Status</div>
+    <div class="contact-general__info-content">
+      <p ng-if="formModel.<%= fieldConfig.name %>" translate>On</p>
+      <p ng-if="!formModel.<%= fieldConfig.name %>" translate>Off</p>
+    </div>
+  </div>
+</div>

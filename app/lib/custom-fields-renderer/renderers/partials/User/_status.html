@@ -1,0 +1,13 @@
+<div class="col-<%= fieldConfig.colSize %>"  <% if (fieldConfig.minHeigth) { %> style="min-height: <%= fieldConfig.minHeigth  %>px;" <% } %>>
+  <label class="contact-adding__item-label" for="custom_checkbox_user_status" translate>Active/Deactive</label>
+  <div>
+    <label class="label-checkbox">
+      <input type="checkbox" id="custom_checkbox_user_status" ng-model="formModel.status">
+      <span class="label-switch">
+          <span class="label-switch__action label-switch__action--on" translate>switcher.on</span>
+          <span class="label-switch__action label-switch__action--off" translate>off</span>
+          <span class="label-switch__point"></span>
+        </span>
+    </label>
+  </div>
+</div>

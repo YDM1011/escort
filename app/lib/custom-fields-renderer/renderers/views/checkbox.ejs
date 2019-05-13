@@ -1,0 +1,16 @@
+<div class="custom-checkbox-input col-<%= fieldConfig.colSize %>"   init-default-value data-module="<%= fieldConfig.module %>" data-name="<%=fieldConfig.name %>" <% if (fieldConfig.minHeigth) { %> style="min-height: <%= fieldConfig.minHeigth  %>px;" <% } %>>
+  <label class="contact-adding__item-label <% if (fieldConfig.isRequired) { %>is-required<% } %>" for="custom_checkbox_<%=fieldConfig.name %>" translate><%= fieldConfig.label %></label>
+  <% if (fieldConfig.hasTooltip) { %>
+    <span class="b-r-xl" tooltip-placement="top" uib-tooltip-template="'/api/customField/tooltip/<%= fieldConfig.module %>/<%=fieldConfig.name %>?_=<%= Date.now() %>'"><i class="fa fa-info-circle"></i></span>
+  <% } %>
+  <div>
+    <label class="label-checkbox">
+      <input type="checkbox" id="custom_checkbox_<%=fieldConfig.name %>" ng-model="formModel.<%= fieldConfig.name %>">
+      <span class="label-switch">
+        <span class="label-switch__action label-switch__action--on" translate>switcher.on</span>
+        <span class="label-switch__action label-switch__action--off" translate>off</span>
+        <span class="label-switch__point"></span>
+      </span>
+    </label>
+  </div>
+</div>

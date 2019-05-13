@@ -1,0 +1,8 @@
+<div class="col-<%= fieldConfig.colSize %>">
+  <div class="contact-general__info-item">
+    <div class="contact-general__info-head" translate><%= fieldConfig.label %></div>
+    <div class="contact-general__info-content editor-container-image">
+      <p ng-bind-html="(formModel.<%= fieldConfig.name %> | trustAsHtml)"></p>
+    </div>
+  </div>
+</div>

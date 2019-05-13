@@ -1,0 +1,19 @@
+<div class="col-6">
+  <div class="contact-adding__item">
+    <label class="contact-adding__item-label" translate><%= fieldConfig.label %></label>
+    <div class="contact-adding__item-body">
+      <div class="row">
+        <div class="col-12">
+          <label class="label-checkbox">
+            <input type="checkbox" ng-model="formModel.productWishes.<%= fieldConfig.name; %>.value">
+            <span class="label-switch">
+                              <span class="label-switch__action label-switch__action--on" translate>on</span>
+                              <span class="label-switch__action label-switch__action--off" translate>off</span>
+                              <span class="label-switch__point"></span>
+                            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

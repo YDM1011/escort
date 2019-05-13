@@ -1,0 +1,9 @@
+<div class="pos-rel col-<%= fieldConfig.colSize %>"   init-default-value data-module="<%= fieldConfig.module %>" data-name="<%=fieldConfig.name %>" <% if (fieldConfig.minHeigth) { %> style="min-height: <%= fieldConfig.minHeigth  %>px;" <% } %> >
+    <label class="contact-adding__item-label <% if (fieldConfig.isRequired) { %>is-required<% } %>" translate><%= fieldConfig.label %></label>
+    <% if (fieldConfig.hasTooltip) { %>
+    <span class="b-r-xl" tooltip-placement="top" uib-tooltip-template="'/api/customField/tooltip/<%= fieldConfig.module %>/<%=fieldConfig.name %>?_=<%= Date.now() %>'"><i class="fa fa-info-circle"></i></span>
+    <% } %>
+  <input type="text" class="form-input" ng-model="formModel.<%= fieldConfig.name %>">
+  <validation-error field="'<%= fieldConfig.name %>'" errors="validationErrors" data-container=".form-group"></validation-error>
+</div>
+

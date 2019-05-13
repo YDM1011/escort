@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+var CustomFieldValidator = require(__dirname + "/../lib/custom-fields-validator");
 
-const user = new Schema({
+const schema = new Schema({
     createdBy: {itemId:{
             type: Schema.Types.ObjectId,
             ref: "User"
@@ -28,4 +29,5 @@ const user = new Schema({
 
 });
 // require("./model_methods/object/user")(user);
-const Post = mongoose.model('Post', user);
+schema.plugin(CustomFieldValidator, {});
+const Post = mongoose.model('Post', schema);

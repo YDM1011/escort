@@ -1,0 +1,38 @@
+<div class="users-head users-head__td--edit">
+  <% if (frontendParams.showTextFilter) { %>
+    <div class="users-head__td">
+      <div class="users-search">
+        <div class="productlist-seatch-select-block">
+          <select class="form-input productlist-seatch-select" ng-model="savedFilterChoser.id" ng-change="updateFilterPanel()">
+            <option value="{{savedFilter._id}}" translate>ALL</option>
+            <option ng-repeat="savedFilter in savedFilters" value="{{savedFilter._id}}">{{savedFilter.name}}</option>
+            <option ng-if="showedFilters.length > 0" value="saveFilter" translate>Save filter</option>
+          </select>
+        </div>
+        <input type="text" class="users-search__input productlist-seatch__input" ng-model="textFilterModel" placeholder="{{(textPlaceholder || '') | translate}}" search-autocomplete data-complete-module="<%= module %>" data-complete-fields="<%- frontendParams.autocompleteField ? frontendParams.autocompleteField.join(',') : ''%>">
+        <button class="users-btn__search productlist-users-btn__search" ng-click="applyFilter()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-20625 -24188 20 20">
+            <path d="M19.379,17.018l-4.737-4.029a2.117,2.117,0,0,0-1.437-.624,7.5,7.5,0,1,0-.839.839,2.117,2.117,0,0,0,.624,1.437l4.029,4.737a1.68,1.68,0,1,0,2.361-2.361ZM7.5,12.5a5,5,0,1,1,5-5A5,5,0,0,1,7.5,12.5Zm-3.75-6.25h0Z" transform="translate(-20625 -24188)"></path>
+          </svg>
+        </button>
+        <a  ng-click="resetFilterPanel()" class="productlist-reset-btn" translate>RESET</a>
+      </div>
+    </div>
+  <% } %>
+  <%- elements %>
+  <div class="users-head__td" style="min-width: auto;" ng-if="filterFields.length > 0" ng-show="showedFilters.length !== filterFields.length">
+    <a class="btn btn-contacts__plus drop--click" drop-popup siblings="true">+</a>
+    <div class="drop-popup drop-popup--small drop-popup--right drop-filter__plus">
+      <div class="drop-nav">
+        <ul class="no-ul">
+          <li ng-repeat="field in filteredFields = (filterFields | filter : filterFieldsDropdownSearch)" ng-show="showedFilters.indexOf(field.name) === -1">
+            <a ng-click="addShowedFilter(field.name)">{{field.label | translate}}</a>
+          </li>
+          <li ng-if="(filterFields | filter : filterFieldsDropdownSearch).length === 0">
+            <a translate>Empty list</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

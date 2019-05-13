@@ -1,0 +1,15 @@
+<div class="col-6">
+  <div class="contact-adding__item">
+    <label class="contact-adding__item-label" translate><%= fieldConfig.label %></label>
+    <div class="contact-adding__item-body">
+      <div class="row">
+        <div class="col-12 rc-select rc-select--multiple">
+          <custom-link-list model="<%= fieldConfig.options ? fieldConfig.options.module : '' %>" label="<%= labelField %>">
+            <select data-placeholder=" " chosen multiple id="search_filter_<%= fieldConfig.name %>" class="chosen-select"  ng-model="formModel.productWishes.<%= fieldConfig.name; %>.values" ng-options="item._id as item.<%=labelField%> for item in linkCustomFieldList.<%= fieldConfig.options ? fieldConfig.options.module : 'undefined' %>">
+            </select>
+          </custom-link-list>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

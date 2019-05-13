@@ -1,0 +1,24 @@
+<div class="col-6">
+  <div class="contact-adding__item">
+    <label class="contact-adding__item-label" translate><%= fieldConfig.label %></label>
+    <div class="contact-adding__item-body">
+      <div class="row">
+        <div class="col-3">
+          <label class="label-checkbox budget-label__checkbox">
+            <input type="checkbox" ng-model="formModel.productWishes.<%= fieldConfig.name; %>.enable">
+            <span class="label-switch">
+                            <span class="label-switch__action label-switch__action--on">yes</span>
+                            <span class="label-switch__action label-switch__action--off">NO</span>
+                            <span class="label-switch__point"></span>
+                          </span>
+          </label>
+        </div>
+        <div class="col-9" ng-if="formModel.productWishes.<%= fieldConfig.name; %>.enable">
+          <div class="budget-slider">
+            <div ion-range-slider on-update="updatePrices" data-current-values="formModel.productWishes.<%= fieldConfig.name; %>.values" field-name="'<%= fieldConfig.name; %>'" field-module="<%= fieldConfig.module; %>" range-options='<%- JSON.stringify(sliderOptions); %>'></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

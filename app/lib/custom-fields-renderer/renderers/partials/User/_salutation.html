@@ -1,0 +1,12 @@
+<div class="pos-rel rc-select col-<%= fieldConfig.colSize %>"  <% if (fieldConfig.minHeigth) { %> style="min-height: <%= fieldConfig.minHeigth  %>px;" <% } %> >
+<label class="contact-adding__item-label" translate>Salutation</label>
+
+<ui-select ng-model="formModel.salutation" theme="select2" append-to-body="true">
+  <ui-select-match>{{$select.selected | mlValue : 'name' : 'translates'}}</ui-select-match>
+  <ui-select-choices repeat="salutation._id as salutation in salutations">
+    <div ng-bind-html="(salutation | mlValue : 'name' : 'translates')"></div>
+  </ui-select-choices>
+</ui-select>
+
+<validation-error field="'salutation'" errors="validationErrors" data-container=".form-group"></validation-error>
+</div>

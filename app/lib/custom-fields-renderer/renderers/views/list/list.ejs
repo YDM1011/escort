@@ -1,0 +1,80 @@
+<div>
+    <scrollable-table watch="items">
+      <table class="teble-with-skroll table-responsive">
+        <thead class="table-responsive__thead">
+        <tr>
+          <th>
+            <label class="user-label">
+              <input type="checkbox" id="check_all" ng-model="checkedModel.checkedAll" ng-checked="allKeys.length > 0 && allKeys.length == checkedModel.checkedRows.length">
+              <span class="user-table__checkbox"></span>
+            </label>
+          </th>
+          <% listSchema.listData.forEach(function (column) { %>
+          <th style="width: <%=calculatePercentWidth(column.widthPercent, options) %>%;" >
+            <span ng-click="setOrder('<%= column.name%>')">
+              <i class="fa fa-sort" ng-class="{'fa-sort-asc': sortModel.field == '<%= column.name%>' && sortModel.direction == -1, 'fa-sort-desc': sortModel.field == '<%= column.name%>' && sortModel.direction == 1}"></i>
+            {{(customFieldsLabels["<%= column.name%>"] || "<%= column.name%>") | translate}}
+            </span>
+
+          </th>
+          <% }) %>
+          <% if (options.showOperations) { %>
+          <th class="grid-actions"  style="width: 10%;">&nbsp;</th>
+          <% } %>
+        </tr>
+        </thead>
+        <tbody class="teble-with-skroll__tbody">
+        <tr ng-repeat="brand in items">
+          <td>
+            <label class="user-label">
+              <input type="checkbox"  id="check_{{$index}}" ng-model="checkedRows[brand._id]" ng-change="toggleSelection(brand._id)" ng-checked="checkedModel.checkedRows.indexOf(brand._id) > -1">
+              <span class="user-table__checkbox"></span>
+            </label>
+          </td>
+          <% listSchema.listData.forEach(function (column) { %>
+          <td style="width: <%= calculatePercentWidth(column.widthPercent, options) %>%;" data-title='{{(customFieldsLabels["<%= column.name%>"] || "<%= column.name%>") | translate}}' ng-click="rowClicked(brand, '<%= column.type %>')">
+            <% if (column.type === 'multiattachment') { %>
+            <render-multiattachments field="'<%= column.name%>'" model="brand"></render-multiattachments>
+            <% } %>
+            <% if (column.type !== 'multiattachment') { %>
+            <div ng-bind-html="trustAsHtml(brand['<%= column.name%>'])"></div>
+            <% } %>
+          </td>
+          <% }) %>
+          <% if (options.showOperations) { %>
+          <td class="grid-actions" data-title="{{'Actions' | translate}}" style="width: {{transformElement ? 15 : 10}}%;">
+            <div>
+              <div class="contacts-actions">
+                <a ng-click="openUpdatePage(brand)" translate>EDIT</a>
+                <a ng-if="transformElement" ng-click="transformElement(brand)" translate>Convert</a>
+                <morph-button ng-if="checkAccess(module + '.delete')" item="brand" listAction="pageChange"></morph-button>
+              </div>
+            </div>
+          </td>
+          <% } %>
+        </tr>
+        <tr ng-if="currentPage < totalPages">
+          <td colspan="<%= options.showOperations ? listSchema.listData.length + 2 : listSchema.listData.length + 1 %>">
+            <div class="contacts-table__more">
+              <a ng-click="loadMore()" class="btn" ng-class="{'btn--loader': isLoading}" translate>LOAD MORE RESULTS</a>
+            </div>
+          </td>
+        </tr>
+        <tr ng-if="items.length === 0">
+          <td colspan="<%= options.showOperations ? listSchema.listData.length + 2 : listSchema.listData.length + 1 %>">
+            <div class="empty-list-results">
+              <p translate>There are no items</p>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </scrollable-table>
+    <div class="user-table__bottom">
+        <div>
+            <export-link ng-if="isLoading == false && exportAllowedChecker" module="module" items="items" total="totalItems"
+                        all-keys="allKeys" selected-message="itemsSelectedMessage" listed-message="itemsListedMessage"
+                        zip-allowed="zipAllowed" checked-model="checkedModel"></export-link>
+        </div>
+    </div>
+</div>

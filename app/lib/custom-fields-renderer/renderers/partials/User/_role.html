@@ -1,0 +1,11 @@
+<div class="pos-rel rc-select col-<%= fieldConfig.colSize %>"  <% if (fieldConfig.minHeigth) { %> style="min-height: <%= fieldConfig.minHeigth  %>px;" <% } %> >
+<label class="contact-adding__item-label" translate>Role</label>
+
+<ui-select ng-model="formModel.role" theme="select2" append-to-body="true">
+  <ui-select-match>{{getRoleName($select.selected)}}</ui-select-match>
+  <ui-select-choices repeat="item as item in showRoles">
+    <div ng-bind-html="getRoleName(item)"></div>
+  </ui-select-choices>
+</ui-select>
+<validation-error field="'role'" errors="validationErrors" data-container=".form-group"></validation-error>
+</div>

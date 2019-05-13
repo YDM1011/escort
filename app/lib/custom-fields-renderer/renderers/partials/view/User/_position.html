@@ -1,0 +1,8 @@
+<div class="col-<%= fieldConfig.colSize %>">
+  <div class="contact-general__info-item">
+    <div class="contact-general__info-head" translate>Position</div>
+    <div class="contact-general__info-content">
+      <p>{{formModel.position && formModel.position.name ? formModel.position.name : (formModel.positionObject | mlValue : "name" : "translates")}}</p>
+    </div>
+  </div>
+</div>

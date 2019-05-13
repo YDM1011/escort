@@ -1,0 +1,30 @@
+<div class="pos-rel col-<%= fieldConfig.colSize %>"   init-default-value data-module="<%= fieldConfig.module %>" data-name="<%=fieldConfig.name %>" <% if (fieldConfig.minHeigth) { %> style="min-height: <%= fieldConfig.minHeigth  %>px;" <% } %> >
+  <label class="contact-adding__item-label <% if (fieldConfig.isRequired) { %>is-required<% } %>" translate><%= fieldConfig.label %></label>
+  <% if (fieldConfig.hasTooltip) { %>
+  <span class="b-r-xl" tooltip-placement="top" uib-tooltip-template="'/api/customField/tooltip/<%= fieldConfig.module %>/<%=fieldConfig.name %>?_=<%= Date.now() %>'"><i class="fa fa-info-circle"></i></span>
+  <% } %>
+  <script>
+    var customNumberOptions = <%- JSON.stringify(numberOptions); %>
+  </script>
+  <div class="input-group">
+    <% if (leftPosition) { %>
+    <div class="input-group-btn rc-select">
+      <currency-list>
+        <select <% if (fieldConfig.isSystemField) { %> disabled="disabled" <% } %> data-placeholder=" " style="min-width: 95px;" chosen id="<%= fieldConfig.name %>" class="chosen-select" ng-init="!formModel.<%= fieldConfig.name %>.currency && ((formModel.<%= fieldConfig.name %> = {}) && (formModel.<%= fieldConfig.name %>.currency = '<%= defaultCurrency%>'))"  tabindex="4" ng-model="formModel.<%= fieldConfig.name %>.currency" ng-options="cur.code as cur.code for cur in priceCustomFieldList">
+          <option value=""></option>
+        </select>
+      </currency-list>
+    </div>
+    <% } %>
+    <input type="text" class="form-input" ng-model="formModel.<%= fieldConfig.name %>.price" cleave='customNumberOptions'>
+    <% if (!leftPosition) { %>
+    <div class="input-group-btn  rc-select">
+      <currency-list>
+        <select <% if (fieldConfig.isSystemField) { %> disabled="disabled" <% } %> data-placeholder=" " style="min-width: 95px;" chosen id="<%= fieldConfig.name %>" class="chosen-select" ng-init="!formModel.<%= fieldConfig.name %>.currency && (formModel.<%= fieldConfig.name %>.currency = '<%= defaultCurrency%>')"  tabindex="4" ng-model="formModel.<%= fieldConfig.name %>.currency" ng-options="cur.code as cur.code for cur in priceCustomFieldList">
+        </select>
+      </currency-list>
+    </div>
+    <% } %>
+  </div>
+  <validation-error field="'<%= fieldConfig.name %>'" errors="validationErrors" data-container=".form-group"></validation-error>
+</div>

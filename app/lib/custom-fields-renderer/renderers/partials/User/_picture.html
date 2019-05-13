@@ -1,0 +1,19 @@
+<div class="form-group col-md-<%= fieldConfig.colSize %>" <% if (fieldConfig.minHeigth) { %> style="min-height: <%= fieldConfig.minHeigth  %>px;" <% } %>>
+<label>&nbsp;</label>&nbsp;
+<div class="m-b-md">
+  <img ng-if="!formModel.tempFile && formModel._id && formModel.picture.croppedImage"
+       ng-src="{{formModel.picture.croppedImage}}" style="max-height: 255px; margin-bottom: 10px;" class="img-circle">
+  <upload-file callback="uploadPhotoCallback" accept=".png,.jpg,.jpeg"></upload-file>
+  <validation-error field="'picture'" errors="validationErrors" data-container=""></validation-error>
+</div>
+<div class="col-md-6">
+  <div class="cropArea" ng-show="formModel.tempFile">
+    <img-crop area-type="square" image="getUserImageUrl()" change-on-fly="true"
+              result-image="croppedImage.data"></img-crop>
+  </div>
+</div>
+<div class="col-md-6" ng-show="formModel.tempFile">
+  <h4 translate>Preview image</h4>
+  <div class="m-b-md"><img ng-src="{{croppedImage.data}}"/></div>
+</div>
+</div>

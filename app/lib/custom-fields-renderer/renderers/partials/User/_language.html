@@ -1,0 +1,13 @@
+<div class="pos-rel rc-select col-<%= fieldConfig.colSize %>"  <% if (fieldConfig.minHeigth) { %> style="min-height: <%= fieldConfig.minHeigth  %>px;" <% } %> >
+  <label class="contact-adding__item-label" translate>Language</label>
+
+  <ui-select ng-model="formModel.language" theme="select2" append-to-body="true">
+    <ui-select-match>{{$select.selected.title}}</ui-select-match>
+    <ui-select-choices repeat="language.name as language in languages">
+      <div ng-bind-html="(language.title)"></div>
+    </ui-select-choices>
+  </ui-select>
+
+  <validation-error field="'language'" errors="validationErrors" data-container=".form-group"></validation-error>
+</div>
+

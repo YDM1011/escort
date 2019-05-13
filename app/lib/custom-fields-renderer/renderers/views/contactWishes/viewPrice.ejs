@@ -1,0 +1,15 @@
+<div class="col-6">
+  <div class="contact-general__info-item">
+    <div class="contact-general__info-head" translate><%= fieldConfig.label %></div>
+    <div class="contact-general__info-content">
+      <% if (!isNaN(parseFloat(min)) && !isNaN(parseFloat(max))) { %>
+      <p>
+        <%= min + " - " + max %>
+      </p>
+      <% } %>
+      <% if (isNaN(parseFloat(min)) || isNaN(parseFloat(max))) { %>
+      <p translate>Not specified</p>
+      <% } %>
+    </div>
+  </div>
+</div>

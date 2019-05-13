@@ -1,0 +1,34 @@
+<div class="col-md-3 wl-bottom-margin-10 filter-field-block" ng-if="showedFilters.indexOf('<%= fieldConfig.name; %>') > -1">
+  <div class="filter-field-label">
+    <label translate><%= fieldConfig.label %></label>
+    <a ng-click="removeShowedFilter('<%= fieldConfig.name; %>')" class="remove-filter-field"><i class="fa fa-trash"></i></a>
+  </div>
+  <div class="input-group filter-field-group">
+    <div class="filter-panel-operator-box">
+      <select class="form-control" ng-model="searchFilterModel['<%= fieldConfig.name; %>'].operator" ng-init="searchFilterModel['<%= fieldConfig.name; %>'].operator = 'equals'">
+        <option value="equals" translate>Equals</option>
+        <option value="gt" translate>Greater that</option>
+        <option value="gte" translate>Greater than or equal</option>
+        <option value="lt" translate>Less that</option>
+        <option value="lte" translate>Greater than or equal</option>
+        <option value="between" translate>Between</option>
+      </select>
+    </div>
+    <script>
+      var customNumberOptions = <%- JSON.stringify(numberOptions); %>
+    </script>
+    <div ng-if="['between'].indexOf(searchFilterModel['<%= fieldConfig.name; %>'].operator) == -1" class="input-group">
+      <input type="text" class="form-control" ng-model="searchFilterModel['<%= fieldConfig.name; %>'].value" cleave='customNumberOptions'>
+      <% if (postfix !== false) { %>
+        <span class="input-group-addon"><%= postfix; %></span>
+      <% } %>
+    </div>
+    <div ng-if="['between'].indexOf(searchFilterModel['<%= fieldConfig.name; %>'].operator) > -1" class="input-group">
+      <input ng-if="searchFilterModel['<%= fieldConfig.name; %>'].operator == 'between'" type="text" placeholder="{{'From' | translate}}" class="form-control form-control-between" ng-model="searchFilterModel['<%= fieldConfig.name; %>'].min" cleave='customNumberOptions'>
+      <input ng-if="searchFilterModel['<%= fieldConfig.name; %>'].operator == 'between'" type="text" placeholder="{{'To' | translate}}" class="form-control form-control-between" ng-model="searchFilterModel['<%= fieldConfig.name; %>'].max" cleave='customNumberOptions'>
+      <% if (postfix !== false) { %>
+      <span class="input-group-addon"><%= postfix; %></span>
+      <% } %>
+    </div>
+  </div>
+</div>

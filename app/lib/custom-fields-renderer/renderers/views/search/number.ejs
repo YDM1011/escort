@@ -1,0 +1,34 @@
+<div class="users-head__td  has-label" ng-if="showedFilters.indexOf('<%= fieldConfig.name; %>') > -1">
+  <label translate><%= fieldConfig.label %></label>
+  <a ng-click="removeShowedFilter('<%= fieldConfig.name; %>')" class="remove-filter-field">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="9887.563 -13109.671 11.875 10.342">
+      <g id="Group_2373" data-name="Group 2373" transform="translate(8342 -13760)">
+        <g id="Group_1172" data-name="Group 1172" class="cls-1" transform="translate(5 7)">
+          <line id="Line_297" data-name="Line 297" class="cls-2" x2="10" y2="8" transform="translate(1541.5 644.5)"></line>
+          <line id="Line_298" data-name="Line 298" class="cls-2" y1="8" x2="10" transform="translate(1541.5 644.5)"></line>
+        </g>
+      </g>
+    </svg>
+  </a>
+  <div ng-controller="NumberFilterCtrl" class="rc-select select-adding">
+    <ui-select ng-init="$parent.searchFilterModel['<%= fieldConfig.name; %>'].operator = 'equals'" ng-model="$parent.searchFilterModel['<%= fieldConfig.name; %>'].operator" theme="select2" search-enabled="false">
+      <ui-select-match>{{$select.selected.label}}</ui-select-match>
+      <ui-select-choices repeat="item.value as item in drodownValues">
+        <div ng-bind-html="item.label"></div>
+      </ui-select-choices>
+    </ui-select>
+  </div>
+  <script>
+    var customNumberOptions = <%- JSON.stringify(numberOptions); %>
+  </script>
+  <div class="users-head__td--second-row" ng-if="searchFilterModel['<%= fieldConfig.name; %>'].operator !== 'between'">
+    <input type="number" class="form-input" ng-model="searchFilterModel['<%= fieldConfig.name; %>'].value" cleave='customNumberOptions'>
+  </div>
+  <div class="users-head__td--second-row col-6 from--date"  ng-if="searchFilterModel['<%= fieldConfig.name; %>'].operator == 'between'">
+    <input type="text" class="form-input" placeholder="{{'From' | translate}}" ng-model="searchFilterModel['<%= fieldConfig.name; %>'].min" cleave='customNumberOptions'>
+  </div>
+  <div class="users-head__td--second-row  col-6 to--date"  ng-if="searchFilterModel['<%= fieldConfig.name; %>'].operator == 'between'">
+    <input type="text" class="form-input" placeholder="{{'To' | translate}}" ng-model="searchFilterModel['<%= fieldConfig.name; %>'].max" cleave='customNumberOptions'>
+  </div>
+  <div class="wl-clearfix"></div>
+</div>

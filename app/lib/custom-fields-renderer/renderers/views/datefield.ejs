@@ -1,0 +1,16 @@
+<div class="pos-rel col-<%= fieldConfig.colSize %>"   init-default-value data-module="<%= fieldConfig.module %>" data-name="<%=fieldConfig.name %>" <% if (fieldConfig.minHeigth) { %> style="min-height: <%= fieldConfig.minHeigth  %>px;" <% } %> >
+  <label class="contact-adding__item-label <% if (fieldConfig.isRequired) { %>is-required<% } %>" translate><%= fieldConfig.label %></label>
+  <% if (fieldConfig.hasTooltip) { %>
+  <span class="b-r-xl" tooltip-placement="top" uib-tooltip-template="'/api/customField/tooltip/<%= fieldConfig.module %>/<%=fieldConfig.name %>?_=<%= Date.now() %>'"><i class="fa fa-info-circle"></i></span>
+  <% } %>
+  <custom-date-picker options='<%- JSON.stringify(options) %>' model="formModel" name="<%= fieldConfig.name %>">
+    <div>
+      <input id="picker_<%= fieldConfig.name %>" type="input" position="absolute" class="form-input input-date" date-time ng-model="formModel.<%= fieldConfig.name %>" view="date"  min-view="<%= minView%>" format="<%=dateFormat%>" timezone="<%= timezone %>">
+
+      <% if (showTime) { %>
+        <input type="text" class="form-input input-date" clock-picker data-autoclose="true" ng-model="formModel.<%= fieldConfig.name %>Time">
+      <% } %>
+    </div>
+  </custom-date-picker>
+  <validation-error field="'<%= fieldConfig.name %>'" errors="validationErrors" data-container=".form-group"></validation-error>
+</div>

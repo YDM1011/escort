@@ -1,0 +1,12 @@
+<div class="col-md-<%= sectionConfig.gridWidth ? sectionConfig.gridWidth : 12 %>">
+  <div class="ibox form-section" <% if (sectionConfig.minHeigth) { %> style="min-height: <%= sectionConfig.minHeigth %>px;"<% } %>>
+    <div class="ibox-title">
+      <h5><%- sectionConfig.title %></h5>
+    </div>
+    <div class="ibox-content">
+      <%- innerContent %>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+

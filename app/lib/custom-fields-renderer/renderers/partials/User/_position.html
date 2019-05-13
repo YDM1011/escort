@@ -1,0 +1,15 @@
+<div class="pos-rel rc-select col-<%= fieldConfig.colSize %>"  <% if (fieldConfig.minHeigth) { %> style="min-height: <%= fieldConfig.minHeigth  %>px;" <% } %> >
+<label popover-placement="right" uib-popover
+       uib-popover-template="'/views/popovers/_selectPosition.html'" popover-is-open="popoverIsOpen"
+       popover-trigger="openPopover" popover-append-to-body="true" class="contact-adding__item-label positionSelectLabel" translate>Position</label>
+<span id="select_position_span" ng-show="!showPositionInput">
+  <ui-select uis-open-close="isOpenPosition(isOpen)" ng-show="!showPositionInput" ng-model="formModel.position.positionId" theme="select2" append-to-body="true" search-enabled="false">
+                  <ui-select-match>{{$select.selected | mlValue : 'name' : 'translates'}}</ui-select-match>
+                  <ui-select-choices repeat="pos._id as pos in positions">
+                    <div ng-bind-html="(pos | mlValue : 'name' : 'translates')"></div>
+                  </ui-select-choices>
+                </ui-select>
+  </span>
+<input ng-show="showPositionInput" type="text" class="form-input" ng-model="formModel.position.name">
+<validation-error field="'position'" errors="validationErrors" data-container=".form-group"></validation-error>
+</div>
