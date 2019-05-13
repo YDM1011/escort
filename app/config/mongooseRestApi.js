@@ -7,7 +7,7 @@ module.exports = function (backendApp) {
         var model = backendApp.mongoose.model(modelName);
         if (model.schema.options.createRestApi) {
             var router = backendApp.express.Router();
-            console.log(modelName)
+            console.log(modelName);
             restify.serve(router, model, {
                 prefix: "",
                 version: "",
@@ -21,7 +21,7 @@ module.exports = function (backendApp) {
                 },
                 // preRead: (req,res,next)=>{preRead(model,req,res,next)},
                 // for access rights control
-                preMiddleware: backendApp.middlewares.isLoggedIn,
+                // preMiddleware: backendApp.middlewares.isLoggedIn,
                 // preRead: model.schema.options.needAccessControl === false ? null : backendApp.middlewares.checkAccessRights(modelName + '.read'),
                 // preCreate: model.schema.options.needAccessControl === false ? null : backendApp.middlewares.checkAccessRights(modelName + '.create'),
                 // preUpdate: model.schema.options.needAccessControl === false ? null : backendApp.middlewares.checkAccessRights(modelName + '.update'),

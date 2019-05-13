@@ -1,8 +1,22 @@
+const fs = require('fs');
 module.exports = function (backendApp, router) {
 
-    router.get('/tests', [backendApp.middlewares.isLoggedIn], function (req, res, next) {
+    router.post('/tests', [], function (req, res, next) {
         console.log("ok2");
-        res.ok({info:"ok"})
+        console.log(req.headers);
+        let filePath = `upload/test.txt`;
+        fs.writeFile(filePath, (req.body), function(err) {
+            if (err) { console.log(err) }
+        });
     });
 
+};
+const convertation = b64string =>{
+    let buf;
+    if (typeof Buffer.from === "function") {
+        buf = Buffer.from(b64string, 'base64'); // Ta-da
+    } else {
+        buf = new Buffer(b64string, 'base64'); // Ta-da
+    }
+    return buf;
 };
