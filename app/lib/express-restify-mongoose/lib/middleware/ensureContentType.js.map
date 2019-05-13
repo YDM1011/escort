@@ -1,0 +1,26 @@
+{
+  "version": 3,
+  "sources": [
+    "../../src/middleware/ensureContentType.js"
+  ],
+  "names": [
+    "module",
+    "exports",
+    "options",
+    "errorHandler",
+    "require",
+    "ensureContentType",
+    "req",
+    "res",
+    "next",
+    "ct",
+    "headers",
+    "Error",
+    "indexOf"
+  ],
+  "mappings": ";;AAAAA,OAAOC,OAAP,GAAiB,UAAUC,OAAV,EAAmB;AAClC,MAAMC,eAAeC,QAAQ,iBAAR,EAA2BF,OAA3B,CAArB;;AAEA,SAAO,SAASG,iBAAT,CAA4BC,GAA5B,EAAiCC,GAAjC,EAAsCC,IAAtC,EAA4C;AACjD,QAAMC,KAAKH,IAAII,OAAJ,CAAY,cAAZ,CAAX;;AAEA,QAAI,CAACD,EAAL,EAAS;AACP,aAAON,aAAaG,GAAb,EAAkBC,GAAlB,EAAuBC,IAAvB,EAA6B,IAAIG,KAAJ,CAAU,sBAAV,CAA7B,CAAP;AACD;;AAED,QAAIF,GAAGG,OAAH,CAAW,kBAAX,MAAmC,CAAC,CAAxC,EAA2C;AACzC,aAAOT,aAAaG,GAAb,EAAkBC,GAAlB,EAAuBC,IAAvB,EAA6B,IAAIG,KAAJ,CAAU,sBAAV,CAA7B,CAAP;AACD;;AAEDH;AACD,GAZD;AAaD,CAhBD",
+  "file": "ensureContentType.js",
+  "sourcesContent": [
+    "module.exports = function (options) {\r\n  const errorHandler = require('../errorHandler')(options)\r\n\r\n  return function ensureContentType (req, res, next) {\r\n    const ct = req.headers['content-type']\r\n\r\n    if (!ct) {\r\n      return errorHandler(req, res, next)(new Error('missing_content_type'))\r\n    }\r\n\r\n    if (ct.indexOf('application/json') === -1) {\r\n      return errorHandler(req, res, next)(new Error('invalid_content_type'))\r\n    }\r\n\r\n    next()\r\n  }\r\n}\r\n"
+  ]
+}

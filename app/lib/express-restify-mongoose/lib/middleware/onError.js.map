@@ -1,0 +1,32 @@
+{
+  "version": 3,
+  "sources": [
+    "../../src/middleware/onError.js"
+  ],
+  "names": [
+    "serializeError",
+    "require",
+    "module",
+    "exports",
+    "isExpress",
+    "err",
+    "req",
+    "res",
+    "next",
+    "serializedErr",
+    "stack",
+    "errors",
+    "key",
+    "reason",
+    "setHeader",
+    "status",
+    "erm",
+    "statusCode",
+    "send"
+  ],
+  "mappings": ";;AAAA,IAAMA,iBAAiBC,QAAQ,iBAAR,CAAvB;;AAEAC,OAAOC,OAAP,GAAiB,UAAUC,SAAV,EAAqB;AACpC,SAAO,UAAUC,GAAV,EAAeC,GAAf,EAAoBC,GAApB,EAAyBC,IAAzB,EAA+B;AACpC,QAAMC,gBAAgBT,eAAeK,GAAf,CAAtB;;AAEA,WAAOI,cAAcC,KAArB;;AAEA,QAAID,cAAcE,MAAlB,EAA0B;AACxB,WAAK,IAAIC,GAAT,IAAgBH,cAAcE,MAA9B,EAAsC;AACpC,eAAOF,cAAcE,MAAd,CAAqBC,GAArB,EAA0BC,MAAjC;AACA,eAAOJ,cAAcE,MAAd,CAAqBC,GAArB,EAA0BF,KAAjC;AACD;AACF;;AAEDH,QAAIO,SAAJ,CAAc,cAAd,EAA8B,kBAA9B;;AAEA,QAAIV,SAAJ,EAAe;AACbG,UAAIQ,MAAJ,CAAWT,IAAIU,GAAJ,CAAQC,UAAnB,EAA+BC,IAA/B,CAAoCT,aAApC;AACD,KAFD,MAEO;AACLF,UAAIW,IAAJ,CAASZ,IAAIU,GAAJ,CAAQC,UAAjB,EAA6BR,aAA7B;AACD;AACF,GAnBD;AAoBD,CArBD",
+  "file": "onError.js",
+  "sourcesContent": [
+    "const serializeError = require('serialize-error')\r\n\r\nmodule.exports = function (isExpress) {\r\n  return function (err, req, res, next) {\r\n    const serializedErr = serializeError(err)\r\n\r\n    delete serializedErr.stack\r\n\r\n    if (serializedErr.errors) {\r\n      for (let key in serializedErr.errors) {\r\n        delete serializedErr.errors[key].reason\r\n        delete serializedErr.errors[key].stack\r\n      }\r\n    }\r\n\r\n    res.setHeader('Content-Type', 'application/json')\r\n\r\n    if (isExpress) {\r\n      res.status(req.erm.statusCode).send(serializedErr)\r\n    } else {\r\n      res.send(req.erm.statusCode, serializedErr)\r\n    }\r\n  }\r\n}\r\n"
+  ]
+}

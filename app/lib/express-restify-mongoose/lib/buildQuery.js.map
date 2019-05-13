@@ -1,0 +1,34 @@
+{
+  "version": 3,
+  "sources": [
+    "../src/buildQuery.js"
+  ],
+  "names": [
+    "Promise",
+    "require",
+    "module",
+    "exports",
+    "options",
+    "query",
+    "queryOptions",
+    "promise",
+    "resolve",
+    "reject",
+    "where",
+    "skip",
+    "limit",
+    "op",
+    "distinct",
+    "sort",
+    "populate",
+    "select",
+    "readPreference",
+    "read",
+    "lean"
+  ],
+  "mappings": ";;AAAA,IAAMA,UAAUC,QAAQ,UAAR,CAAhB;;AAEAC,OAAOC,OAAP,GAAiB,UAAUC,OAAV,EAAmB;AAClC,SAAO,UAAUC,KAAV,EAAiBC,YAAjB,EAA+B;AACpC,QAAMC,UAAU,IAAIP,OAAJ,CAAY,UAACQ,OAAD,EAAUC,MAAV,EAAqB;AAC/C,UAAI,CAACH,YAAL,EAAmB;AACjB,eAAOE,QAAQH,KAAR,CAAP;AACD;;AAED,UAAIC,aAAaD,KAAjB,EAAwB;AACtBA,cAAMK,KAAN,CAAYJ,aAAaD,KAAzB;AACD;;AAED,UAAIC,aAAaK,IAAjB,EAAuB;AACrBN,cAAMM,IAAN,CAAWL,aAAaK,IAAxB;AACD;;AAED,UAAIP,QAAQQ,KAAR,KAAkB,CAACN,aAAaM,KAAd,IAAuBN,aAAaM,KAAb,KAAuB,GAA9C,IAAqDN,aAAaM,KAAb,GAAqBR,QAAQQ,KAApG,CAAJ,EAAgH;AAC9GN,qBAAaM,KAAb,GAAqBR,QAAQQ,KAA7B;AACD;;AAED,UAAIN,aAAaM,KAAb,IAAsBP,MAAMQ,EAAN,KAAa,OAAnC,IAA8C,CAACP,aAAaQ,QAAhE,EAA0E;AACxET,cAAMO,KAAN,CAAYN,aAAaM,KAAzB;AACD;;AAED,UAAIN,aAAaS,IAAjB,EAAuB;AACrBV,cAAMU,IAAN,CAAWT,aAAaS,IAAxB;AACD;;AAED,UAAIT,aAAaU,QAAjB,EAA2B;AACzBX,cAAMW,QAAN,CAAeV,aAAaU,QAA5B;AACD;;AAED,UAAIV,aAAaW,MAAjB,EAAyB;AACvBZ,cAAMY,MAAN,CAAaX,aAAaW,MAA1B;AACD;;AAED,UAAIX,aAAaQ,QAAjB,EAA2B;AACzBT,cAAMS,QAAN,CAAeR,aAAaQ,QAA5B;AACD;;AAED,UAAIV,QAAQc,cAAZ,EAA4B;AAC1Bb,cAAMc,IAAN,CAAWf,QAAQc,cAAnB;AACD;;AAED,UAAId,QAAQgB,IAAZ,EAAkB;AAChBf,cAAMe,IAAN,CAAWhB,QAAQgB,IAAnB;AACD;;AAEDZ,cAAQH,KAAR;AACD,KA9Ce,CAAhB;;AAgDA,WAAOE,OAAP;AACD,GAlDD;AAmDD,CApDD",
+  "file": "buildQuery.js",
+  "sourcesContent": [
+    "const Promise = require('bluebird')\r\n\r\nmodule.exports = function (options) {\r\n  return function (query, queryOptions) {\r\n    const promise = new Promise((resolve, reject) => {\r\n      if (!queryOptions) {\r\n        return resolve(query)\r\n      }\r\n\r\n      if (queryOptions.query) {\r\n        query.where(queryOptions.query)\r\n      }\r\n\r\n      if (queryOptions.skip) {\r\n        query.skip(queryOptions.skip)\r\n      }\r\n\r\n      if (options.limit && (!queryOptions.limit || queryOptions.limit === '0' || queryOptions.limit > options.limit)) {\r\n        queryOptions.limit = options.limit\r\n      }\r\n\r\n      if (queryOptions.limit && query.op !== 'count' && !queryOptions.distinct) {\r\n        query.limit(queryOptions.limit)\r\n      }\r\n\r\n      if (queryOptions.sort) {\r\n        query.sort(queryOptions.sort)\r\n      }\r\n\r\n      if (queryOptions.populate) {\r\n        query.populate(queryOptions.populate)\r\n      }\r\n\r\n      if (queryOptions.select) {\r\n        query.select(queryOptions.select)\r\n      }\r\n\r\n      if (queryOptions.distinct) {\r\n        query.distinct(queryOptions.distinct)\r\n      }\r\n\r\n      if (options.readPreference) {\r\n        query.read(options.readPreference)\r\n      }\r\n\r\n      if (options.lean) {\r\n        query.lean(options.lean)\r\n      }\r\n\r\n      resolve(query)\r\n    })\r\n\r\n    return promise\r\n  }\r\n}\r\n"
+  ]
+}

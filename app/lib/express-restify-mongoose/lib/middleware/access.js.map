@@ -1,0 +1,27 @@
+{
+  "version": 3,
+  "sources": [
+    "../../src/middleware/access.js"
+  ],
+  "names": [
+    "module",
+    "exports",
+    "options",
+    "errorHandler",
+    "require",
+    "req",
+    "res",
+    "next",
+    "handler",
+    "err",
+    "access",
+    "indexOf",
+    "Error",
+    "length"
+  ],
+  "mappings": ";;AAAAA,OAAOC,OAAP,GAAiB,UAAUC,OAAV,EAAmB;AAClC,MAAMC,eAAeC,QAAQ,iBAAR,EAA2BF,OAA3B,CAArB;;AAEA,SAAO,UAAUG,GAAV,EAAeC,GAAf,EAAoBC,IAApB,EAA0B;AAC/B,QAAMC,UAAU,SAAVA,OAAU,CAAUC,GAAV,EAAeC,MAAf,EAAuB;AACrC,UAAID,GAAJ,EAAS;AACP,eAAON,aAAaE,GAAb,EAAkBC,GAAlB,EAAuBC,IAAvB,EAA6BE,GAA7B,CAAP;AACD;;AAED,UAAI,CAAC,QAAD,EAAW,SAAX,EAAsB,WAAtB,EAAmCE,OAAnC,CAA2CD,MAA3C,IAAqD,CAAzD,EAA4D;AAC1D,cAAM,IAAIE,KAAJ,CAAU,gEAAV,CAAN;AACD;;AAEDP,UAAIK,MAAJ,GAAaA,MAAb;AACAH;AACD,KAXD;;AAaA,QAAIL,QAAQQ,MAAR,CAAeG,MAAf,GAAwB,CAA5B,EAA+B;AAC7BX,cAAQQ,MAAR,CAAeL,GAAf,EAAoBG,OAApB;AACD,KAFD,MAEO;AACLA,cAAQ,IAAR,EAAcN,QAAQQ,MAAR,CAAeL,GAAf,CAAd;AACD;AACF,GAnBD;AAoBD,CAvBD",
+  "file": "access.js",
+  "sourcesContent": [
+    "module.exports = function (options) {\r\n  const errorHandler = require('../errorHandler')(options)\r\n\r\n  return function (req, res, next) {\r\n    const handler = function (err, access) {\r\n      if (err) {\r\n        return errorHandler(req, res, next)(err)\r\n      }\r\n\r\n      if (['public', 'private', 'protected'].indexOf(access) < 0) {\r\n        throw new Error('Unsupported access, must be \"private\", \"protected\" or \"public\"')\r\n      }\r\n\r\n      req.access = access\r\n      next()\r\n    }\r\n\r\n    if (options.access.length > 1) {\r\n      options.access(req, handler)\r\n    } else {\r\n      handler(null, options.access(req))\r\n    }\r\n  }\r\n}\r\n"
+  ]
+}

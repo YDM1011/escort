@@ -1,0 +1,26 @@
+{
+  "version": 3,
+  "sources": [
+    "../../src/middleware/outputFn.js"
+  ],
+  "names": [
+    "module",
+    "exports",
+    "isExpress",
+    "output",
+    "req",
+    "res",
+    "erm",
+    "result",
+    "status",
+    "statusCode",
+    "json",
+    "sendStatus",
+    "send"
+  ],
+  "mappings": ";;AAAAA,OAAOC,OAAP,GAAiB,UAAUC,SAAV,EAAqB;AACpC,SAAO,SAASC,MAAT,CAAiBC,GAAjB,EAAsBC,GAAtB,EAA2B;AAChC,QAAIH,SAAJ,EAAe;AACb,UAAIE,IAAIE,GAAJ,CAAQC,MAAZ,EAAoB;AAClBF,YAAIG,MAAJ,CAAWJ,IAAIE,GAAJ,CAAQG,UAAnB,EAA+BC,IAA/B,CAAoCN,IAAIE,GAAJ,CAAQC,MAA5C;AACD,OAFD,MAEO;AACLF,YAAIM,UAAJ,CAAeP,IAAIE,GAAJ,CAAQG,UAAvB;AACD;AACF,KAND,MAMO;AACLJ,UAAIO,IAAJ,CAASR,IAAIE,GAAJ,CAAQG,UAAjB,EAA6BL,IAAIE,GAAJ,CAAQC,MAArC;AACD;AACF,GAVD;AAWD,CAZD",
+  "file": "outputFn.js",
+  "sourcesContent": [
+    "module.exports = function (isExpress) {\r\n  return function output (req, res) {\r\n    if (isExpress) {\r\n      if (req.erm.result) {\r\n        res.status(req.erm.statusCode).json(req.erm.result)\r\n      } else {\r\n        res.sendStatus(req.erm.statusCode)\r\n      }\r\n    } else {\r\n      res.send(req.erm.statusCode, req.erm.result)\r\n    }\r\n  }\r\n}\r\n"
+  ]
+}

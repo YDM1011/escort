@@ -1,0 +1,40 @@
+{
+  "version": 3,
+  "sources": [
+    "../../src/middleware/filterAndFindById.js"
+  ],
+  "names": [
+    "http",
+    "require",
+    "module",
+    "exports",
+    "model",
+    "options",
+    "errorHandler",
+    "req",
+    "res",
+    "next",
+    "params",
+    "id",
+    "contextFilter",
+    "filteredContext",
+    "findOne",
+    "and",
+    "idProperty",
+    "lean",
+    "read",
+    "readPreference",
+    "exec",
+    "then",
+    "doc",
+    "Error",
+    "STATUS_CODES",
+    "erm",
+    "document"
+  ],
+  "mappings": ";;;;AAAA,IAAMA,OAAOC,QAAQ,MAAR,CAAb;;AAEAC,OAAOC,OAAP,GAAiB,UAAUC,KAAV,EAAiBC,OAAjB,EAA0B;AACzC,MAAMC,eAAeL,QAAQ,iBAAR,EAA2BI,OAA3B,CAArB;;AAEA,SAAO,UAAUE,GAAV,EAAeC,GAAf,EAAoBC,IAApB,EAA0B;AAC/B,QAAI,CAACF,IAAIG,MAAJ,CAAWC,EAAhB,EAAoB;AAClB,aAAOF,MAAP;AACD;;AAEDJ,YAAQO,aAAR,CAAsBR,KAAtB,EAA6BG,GAA7B,EAAkC,UAACM,eAAD,EAAqB;AACrDA,sBAAgBC,OAAhB,GAA0BC,GAA1B,qBACGV,QAAQW,UADX,EACwBT,IAAIG,MAAJ,CAAWC,EADnC,GAEGM,IAFH,CAEQ,KAFR,EAEeC,IAFf,CAEoBb,QAAQc,cAF5B,EAE4CC,IAF5C,GAEmDC,IAFnD,CAEwD,UAACC,GAAD,EAAS;AAC/D,YAAI,CAACA,GAAL,EAAU;AACR,iBAAOhB,aAAaC,GAAb,EAAkBC,GAAlB,EAAuBC,IAAvB,EAA6B,IAAIc,KAAJ,CAAUvB,KAAKwB,YAAL,CAAkB,GAAlB,CAAV,CAA7B,CAAP;AACD;;AAEDjB,YAAIkB,GAAJ,CAAQC,QAAR,GAAmBJ,GAAnB;;AAEAb;AACD,OAVD,EAUGH,aAAaC,GAAb,EAAkBC,GAAlB,EAAuBC,IAAvB,CAVH;AAWD,KAZD;AAaD,GAlBD;AAmBD,CAtBD",
+  "file": "filterAndFindById.js",
+  "sourcesContent": [
+    "const http = require('http')\r\n\r\nmodule.exports = function (model, options) {\r\n  const errorHandler = require('../errorHandler')(options)\r\n\r\n  return function (req, res, next) {\r\n    if (!req.params.id) {\r\n      return next()\r\n    }\r\n\r\n    options.contextFilter(model, req, (filteredContext) => {\r\n      filteredContext.findOne().and({\r\n        [options.idProperty]: req.params.id\r\n      }).lean(false).read(options.readPreference).exec().then((doc) => {\r\n        if (!doc) {\r\n          return errorHandler(req, res, next)(new Error(http.STATUS_CODES[404]))\r\n        }\r\n\r\n        req.erm.document = doc\r\n\r\n        next()\r\n      }, errorHandler(req, res, next))\r\n    })\r\n  }\r\n}\r\n"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "version": 3,
+  "sources": [
+    "../src/errorHandler.js"
+  ],
+  "names": [
+    "http",
+    "require",
+    "module",
+    "exports",
+    "options",
+    "req",
+    "res",
+    "next",
+    "err",
+    "message",
+    "STATUS_CODES",
+    "params",
+    "id",
+    "path",
+    "idProperty",
+    "name",
+    "erm",
+    "statusCode",
+    "onError"
+  ],
+  "mappings": ";;AAAA,IAAMA,OAAOC,QAAQ,MAAR,CAAb;;AAEAC,OAAOC,OAAP,GAAiB,UAAUC,OAAV,EAAmB;AAClC,SAAO,UAAUC,GAAV,EAAeC,GAAf,EAAoBC,IAApB,EAA0B;AAC/B,WAAO,UAAUC,GAAV,EAAe;AACpB,UAAIA,IAAIC,OAAJ,KAAgBT,KAAKU,YAAL,CAAkB,GAAlB,CAAhB,IAA2CL,IAAIM,MAAJ,CAAWC,EAAX,IAAiBJ,IAAIK,IAAJ,KAAaT,QAAQU,UAAtC,IAAoDN,IAAIO,IAAJ,KAAa,WAAhH,EAA8H;AAC5HV,YAAIW,GAAJ,CAAQC,UAAR,GAAqB,GAArB;AACD,OAFD,MAEO;AACLZ,YAAIW,GAAJ,CAAQC,UAAR,GAAqBZ,IAAIW,GAAJ,CAAQC,UAAR,IAAsBZ,IAAIW,GAAJ,CAAQC,UAAR,IAAsB,GAA5C,GAAkDZ,IAAIW,GAAJ,CAAQC,UAA1D,GAAuE,GAA5F;AACD;;AAEDb,cAAQc,OAAR,CAAgBV,GAAhB,EAAqBH,GAArB,EAA0BC,GAA1B,EAA+BC,IAA/B;AACD,KARD;AASD,GAVD;AAWD,CAZD",
+  "file": "errorHandler.js",
+  "sourcesContent": [
+    "const http = require('http')\r\n\r\nmodule.exports = function (options) {\r\n  return function (req, res, next) {\r\n    return function (err) {\r\n      if (err.message === http.STATUS_CODES[404] || (req.params.id && err.path === options.idProperty && err.name === 'CastError')) {\r\n        req.erm.statusCode = 404\r\n      } else {\r\n        req.erm.statusCode = req.erm.statusCode && req.erm.statusCode >= 400 ? req.erm.statusCode : 400\r\n      }\r\n\r\n      options.onError(err, req, res, next)\r\n    }\r\n  }\r\n}\r\n"
+  ]
+}

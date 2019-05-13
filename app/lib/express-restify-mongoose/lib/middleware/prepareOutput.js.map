@@ -1,0 +1,50 @@
+{
+  "version": 3,
+  "sources": [
+    "../../src/middleware/prepareOutput.js"
+  ],
+  "names": [
+    "_",
+    "require",
+    "async",
+    "module",
+    "exports",
+    "options",
+    "excludedMap",
+    "errorHandler",
+    "req",
+    "res",
+    "next",
+    "postMiddleware",
+    "method",
+    "toLowerCase",
+    "postRead",
+    "erm",
+    "statusCode",
+    "postCreate",
+    "postUpdate",
+    "postDelete",
+    "eachSeries",
+    "middleware",
+    "cb",
+    "err",
+    "result",
+    "opts",
+    "access",
+    "populate",
+    "_ermQueryOptions",
+    "filter",
+    "filterObject",
+    "totalCountHeader",
+    "totalCount",
+    "header",
+    "isString",
+    "outputFn",
+    "postProcess"
+  ],
+  "mappings": ";;AAAA,IAAMA,IAAIC,QAAQ,QAAR,CAAV;AACA,IAAMC,QAAQD,QAAQ,OAAR,CAAd;;AAEAE,OAAOC,OAAP,GAAiB,UAAUC,OAAV,EAAmBC,WAAnB,EAAgC;AAC/C,MAAMC,eAAeN,QAAQ,iBAAR,EAA2BI,OAA3B,CAArB;;AAEA,SAAO,UAAUG,GAAV,EAAeC,GAAf,EAAoBC,IAApB,EAA0B;AAC/B,QAAIC,uBAAJ;;AAEA,YAAQH,IAAII,MAAJ,CAAWC,WAAX,EAAR;AACE,WAAK,KAAL;AACEF,yBAAiBN,QAAQS,QAAzB;AACA;AACF,WAAK,MAAL;AACE,YAAIN,IAAIO,GAAJ,CAAQC,UAAR,KAAuB,GAA3B,EAAgC;AAC9BL,2BAAiBN,QAAQY,UAAzB;AACD,SAFD,MAEO;AACLN,2BAAiBN,QAAQa,UAAzB;AACD;AACD;AACF,WAAK,KAAL;AACA,WAAK,OAAL;AACEP,yBAAiBN,QAAQa,UAAzB;AACA;AACF,WAAK,QAAL;AACEP,yBAAiBN,QAAQc,UAAzB;AACA;AAjBJ;;AAoBAjB,UAAMkB,UAAN,CAAiBT,cAAjB,EAAiC,UAACU,UAAD,EAAaC,EAAb,EAAoB;AACnDD,iBAAWb,GAAX,EAAgBC,GAAhB,EAAqBa,EAArB;AACD,KAFD,EAEG,UAACC,GAAD,EAAS;AACV,UAAIA,GAAJ,EAAS;AACP,eAAOhB,aAAaC,GAAb,EAAkBC,GAAlB,EAAuBC,IAAvB,EAA6Ba,GAA7B,CAAP;AACD;;AAED;AACA,UAAIf,IAAIO,GAAJ,CAAQS,MAAZ,EAAoB;AAClB,YAAIC,OAAO;AACTC,kBAAQlB,IAAIkB,MADH;AAETpB,uBAAaA,WAFJ;AAGTqB,oBAAUnB,IAAIoB,gBAAJ,GAAuBpB,IAAIoB,gBAAJ,CAAqBD,QAA5C,GAAuD;AAHxD,SAAX;;AAMAnB,YAAIO,GAAJ,CAAQS,MAAR,GAAiBnB,QAAQwB,MAAR,GAAiBxB,QAAQwB,MAAR,CAAeC,YAAf,CAA4BtB,IAAIO,GAAJ,CAAQS,MAApC,EAA4CC,IAA5C,CAAjB,GAAqEjB,IAAIO,GAAJ,CAAQS,MAA9F;AACD;;AAED,UAAInB,QAAQ0B,gBAAR,IAA4BvB,IAAIO,GAAJ,CAAQiB,UAAxC,EAAoD;AAClDvB,YAAIwB,MAAJ,CAAWjC,EAAEkC,QAAF,CAAW7B,QAAQ0B,gBAAnB,IAAuC1B,QAAQ0B,gBAA/C,GAAkE,eAA7E,EAA8FvB,IAAIO,GAAJ,CAAQiB,UAAtG;AACD;;AAED3B,cAAQ8B,QAAR,CAAiB3B,GAAjB,EAAsBC,GAAtB;;AAEA,UAAIJ,QAAQ+B,WAAZ,EAAyB;AACvB/B,gBAAQ+B,WAAR,CAAoB5B,GAApB,EAAyBC,GAAzB,EAA8BC,IAA9B;AACD;AACF,KA3BD;AA4BD,GAnDD;AAoDD,CAvDD",
+  "file": "prepareOutput.js",
+  "sourcesContent": [
+    "const _ = require('lodash')\r\nconst async = require('async')\r\n\r\nmodule.exports = function (options, excludedMap) {\r\n  const errorHandler = require('../errorHandler')(options)\r\n\r\n  return function (req, res, next) {\r\n    let postMiddleware\r\n\r\n    switch (req.method.toLowerCase()) {\r\n      case 'get':\r\n        postMiddleware = options.postRead\r\n        break\r\n      case 'post':\r\n        if (req.erm.statusCode === 201) {\r\n          postMiddleware = options.postCreate\r\n        } else {\r\n          postMiddleware = options.postUpdate\r\n        }\r\n        break\r\n      case 'put':\r\n      case 'patch':\r\n        postMiddleware = options.postUpdate\r\n        break\r\n      case 'delete':\r\n        postMiddleware = options.postDelete\r\n        break\r\n    }\r\n\r\n    async.eachSeries(postMiddleware, (middleware, cb) => {\r\n      middleware(req, res, cb)\r\n    }, (err) => {\r\n      if (err) {\r\n        return errorHandler(req, res, next)(err)\r\n      }\r\n\r\n      // TODO: this will, but should not, filter /count queries\r\n      if (req.erm.result) {\r\n        let opts = {\r\n          access: req.access,\r\n          excludedMap: excludedMap,\r\n          populate: req._ermQueryOptions ? req._ermQueryOptions.populate : null\r\n        }\r\n\r\n        req.erm.result = options.filter ? options.filter.filterObject(req.erm.result, opts) : req.erm.result\r\n      }\r\n\r\n      if (options.totalCountHeader && req.erm.totalCount) {\r\n        res.header(_.isString(options.totalCountHeader) ? options.totalCountHeader : 'X-Total-Count', req.erm.totalCount)\r\n      }\r\n\r\n      options.outputFn(req, res)\r\n\r\n      if (options.postProcess) {\r\n        options.postProcess(req, res, next)\r\n      }\r\n    })\r\n  }\r\n}\r\n"
+  ]
+}
