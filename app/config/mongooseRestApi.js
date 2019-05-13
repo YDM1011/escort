@@ -2,7 +2,6 @@
 module.exports = function (backendApp) {
 
     var restify = require('../lib/express-restify-mongoose/lib/express-restify-mongoose');
-
     var modelNames = backendApp.mongoose.modelNames();
     modelNames.forEach(function (modelName) {
         var model = backendApp.mongoose.model(modelName);

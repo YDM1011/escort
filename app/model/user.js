@@ -26,7 +26,7 @@ const user = new Schema({
         console.log("gg")
     },
     createRestApi: true,
-    strict: true,
+    strict: false,
 
 });
 require("./model_methods/object/user")(user);

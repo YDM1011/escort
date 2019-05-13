@@ -15,7 +15,7 @@ module.exports = function (schema) {
               maxAge: 0,
               httpOnly: false
           });
-      res.ok(this.toObject())
+      res.ok({sid:this.token,userId:this._id, user: this.toObject()})
   };
 /*
   schema.methods.pictureUrl = function () {
