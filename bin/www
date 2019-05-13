@@ -77,18 +77,19 @@ function onError(error) {
   }
 }
 
-var net = require('net')
-
-var server2 = net.createServer(function(socket) {
-    socket.on("connect",function() {
-      console.log("Connect");
-
-        var str = JSON.stringify({foo : 'test', msg : 'did you get it ?'}) + "\n";
-        console.log(str);
-        console.log(socket);
-        socket.write(str)
-    });
-}).listen(3000);
+const net = require('net');
+const client = net.createConnection({ port: 3000 }, () => {
+    // 'connect' listener
+    console.log('connected to server!');
+    client.write('world!\r\n');
+});
+client.on('data', (data) => {
+    console.log(data.toString());
+    client.end();
+});
+client.on('end', () => {
+    console.log('disconnected from server');
+});
 
 /**
  * Event listener for HTTP server "listening" event.
