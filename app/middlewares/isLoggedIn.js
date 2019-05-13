@@ -6,8 +6,6 @@ module.exports = function (req, res, next) {
   if (req.jwt) {
       const jwt = require('jsonwebtoken');
       const protect = req.cookies['sid'] || req.jwt.token;
-        console.log(req.cookies);
-        console.log(req.jwt);
       if(!protect){
           return res.forbidden("forbidden12");
       }
