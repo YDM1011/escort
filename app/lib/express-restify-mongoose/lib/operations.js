@@ -265,9 +265,13 @@ module.exports = function (model, options, excludedMap) {
     if (typeof model.schema.virtuals.activityLogUserId !== "undefined") {
       req.body['activityLogUserId'] = req.user ? req.user._id : null;
     }
-    model.modifyBody(req.body, function (err, body) {
-      model.customValidation(null, req.acceptLanguage, body, function (err) {
-        if (err) return errorHandler(req, res, next)(err);
+    let body = req.body;
+      // req.erm.result = req.body;
+      // req.erm.statusCode = 201;
+      // next()
+    // model.modifyBody(req.body, function (err, body) {
+    //   model.customValidation(null, req.acceptLanguage, body, function (err) {
+    //     if (err) return errorHandler(req, res, next)(err);
         model.create(body).then(function (item) {
           return model.populate(item, req._ermQueryOptions.populate || []);
         }).then(function (item) {
@@ -275,8 +279,8 @@ module.exports = function (model, options, excludedMap) {
           req.erm.statusCode = 201;
           next();
         }, errorHandler(req, res, next));
-      });
-    });
+      // });
+    // });
 
   }
 

@@ -31,5 +31,5 @@ const user = new Schema({
 
 });
 require("./model_methods/object/user")(user);
-user.plugin(CustomFieldValidator, {});
+// user.plugin(CustomFieldValidator, {});
 const User = mongoose.model('User', user);

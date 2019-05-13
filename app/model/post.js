@@ -29,5 +29,5 @@ const schema = new Schema({
 
 });
 // require("./model_methods/object/user")(user);
-schema.plugin(CustomFieldValidator, {});
+// schema.plugin(CustomFieldValidator, {});
 const Post = mongoose.model('Post', schema);

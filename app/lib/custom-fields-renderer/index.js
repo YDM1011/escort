@@ -299,32 +299,26 @@ var CustomFieldProcessor = function (module, language) {
 
   this.modifyBody = function (originalBody, next) {
     var _self = this;
-    var CustomField = backendApp.mongoose.model("CustomField");
+    // var CustomField = backendApp.mongoose.model("CustomField");
     var body = _.clone(originalBody);
-    CustomField.getMergeList({
-      module: _self.module,
-      status: true,
-    }, function (err, list) {
-      if (err) return next(err);
-      async.mapSeries(list.sortedList, function (field, cb) {
-        var rendererClass = _self.getRenderClassByType(field.type);
-        if (!rendererClass) {
-          return cb(null, "");
-        }
-        var renderer = new rendererClass(field, _self.language);
-        if (typeof renderer.modifyBody === "function") {
-          renderer.modifyBody(body, function (err, changedBody) {
-            body = _.clone(changedBody);
-            cb(err);
-          });
-        } else {
-          cb(null);
-        }
+      async.mapSeries( function (field, cb) {
+          var rendererClass = _self.getRenderClassByType(field.type);
+          if (!rendererClass) {
+              return cb(null, "");
+          }
+          var renderer = new rendererClass(field, _self.language);
+          if (typeof renderer.modifyBody === "function") {
+              renderer.modifyBody(body, function (err, changedBody) {
+                  body = _.clone(changedBody);
+                  cb(err);
+              });
+          } else {
+              cb(null);
+          }
       }, function (err, rendered) {
-        if (err) return next(err);
-        next(null, body);
+          if (err) return next(err);
+          next(null, body);
       });
-    });
   };
 
   this.renderContactWishesFields = function (next) {
