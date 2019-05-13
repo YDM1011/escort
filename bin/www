@@ -78,17 +78,23 @@ function onError(error) {
 }
 
 const net = require('net');
-const client = net.createConnection({ port: 3000 }, () => {
-    // 'connect' listener
-    console.log('connected to server!');
-    client.write('world!\r\n');
+const server = net.createServer((c) => {
+    // 'connection' listener
+    console.log('client connected');
+    c.on('end', () => {
+        console.log('client disconnected');
+    });
+    c.on('data', (data) => {
+        console.log("ok!!! ",data.toString());
+    });
+    c.write('hello\r\n');
+    c.pipe(c);
 });
-client.on('data', (data) => {
-    console.log("ok!! ",data.toString());
-    client.end();
+server.on('error', (err) => {
+    throw err;
 });
-client.on('end', () => {
-    console.log('disconnected from server');
+server.listen(3000, () => {
+    console.log('server bound');
 });
 
 /**
