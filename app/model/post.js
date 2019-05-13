@@ -27,4 +27,5 @@ const user = new Schema({
     strict: false,
 
 });
-require("./model_methods/object/user")(user);
+// require("./model_methods/object/user")(user);
+const Post = mongoose.model('Post', user);
