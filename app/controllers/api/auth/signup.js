@@ -40,5 +40,5 @@ module.exports = (backendApp, router) => {
         });
     };
 
-    router.post('api/signup', [], signup);
+    router.post('/signup', [], signup);
 };
