@@ -104,7 +104,7 @@ net.createServer(function(sock) {
 
 }).listen(PORT);
 
-console.log('Server listening on ' + HOST +':'+ PORT);
+console.log('Server listening on :'+ PORT);
 
 /**
  * Event listener for HTTP server "listening" event.
