@@ -285,6 +285,7 @@ module.exports = function (model, options, excludedMap) {
   }
 
   function validateObject(req, res, next) {
+      console.log("OK!!!!!!!!!!!" + options)
     req.body = options.filter.filterObject(req.body || {}, {
       access: req.access,
       populate: req._ermQueryOptions.populate
@@ -364,6 +365,7 @@ module.exports = function (model, options, excludedMap) {
   }
 
   function modifyObject(req, res, next) {
+
     req.body = options.filter.filterObject(req.body || {}, {
       access: req.access,
       populate: req._ermQueryOptions.populate
@@ -410,6 +412,7 @@ module.exports = function (model, options, excludedMap) {
 
     // var cleanBody = moredots(depopulate(req.body)); // was commented because doesn't work with embedded documents
     if (options.findOneAndUpdate) {
+
       options.contextFilter(model, req, function (filteredContext) {
         findById(filteredContext, req.params.id).findOneAndUpdate({}, {
           $set: cleanBody

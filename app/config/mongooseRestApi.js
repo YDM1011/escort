@@ -1,7 +1,8 @@
 
 module.exports = function (backendApp) {
 
-    var restify = require('../lib/express-restify-mongoose/lib/express-restify-mongoose');
+    const restify = require('express-restify-mongoose');
+    // var restify = require('../lib/express-restify-mongoose/lib/express-restify-mongoose');
     var modelNames = backendApp.mongoose.modelNames();
     modelNames.forEach(function (modelName) {
         var model = backendApp.mongoose.model(modelName);
@@ -14,8 +15,8 @@ module.exports = function (backendApp) {
                 runValidators: true,
                 totalCountHeader: true,
                 lean: false,
-                findOneAndUpdate: false,
-                findOneAndRemove: false,
+                findOneAndUpdate: true,
+                findOneAndRemove: true,
                 postRead: model.schema.options.postRead || function (req, res, next) {
                     next(null);
                 },

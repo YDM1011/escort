@@ -24,6 +24,8 @@
     "jwt-express": "^1.1.0",
     "koa-cors": "0.0.16",
     "liqpay-sdk": "^3.2.0",
+    "lodash": "^4.17.11",
+    "lodash.defaults": "^4.2.0",
     "md5": "^2.2.1",
     "method-override": "^3.0.0",
     "mime": "^2.4.0",
