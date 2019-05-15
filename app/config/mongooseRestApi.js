@@ -23,7 +23,7 @@ module.exports = function (backendApp) {
                 // preRead: (req,res,next)=>{preRead(model,req,res,next)},
                 // for access rights control
                 // preMiddleware: backendApp.middlewares.isLoggedIn,
-                // preRead: true,
+                preRead: preRead,
                 preCreate: backendApp.middlewares.isLoggedIn,
                 preUpdate: backendApp.middlewares.isLoggedIn,
                 preDelete: backendApp.middlewares.isLoggedIn,
@@ -34,10 +34,12 @@ module.exports = function (backendApp) {
     });
 };
 
-const preRead = (model,req,res,next) => {
-    // model.findOne({}, (e,r)=>{
-    //     console.log('gg0')
-    //     r.preRead();
-    //     next()
-    // })
+const preRead = (req,res,next) => {
+    if (req.query.skip){
+        req.query.skip = req.query.skip * req.query.limit;
+        next()
+    }else{
+        next()
+    }
+
 };
