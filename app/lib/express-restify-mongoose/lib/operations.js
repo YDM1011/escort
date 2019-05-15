@@ -66,6 +66,7 @@ module.exports = function (model, options, excludedMap) {
     }
 
     options.contextFilter(model, req, function (filteredContext) {
+      console.log(req._ermQueryOptions);
       buildQuery(filteredContext.find(), req._ermQueryOptions).then(function (items) {
         req.erm.result = items;
         req.erm.statusCode = 200;
