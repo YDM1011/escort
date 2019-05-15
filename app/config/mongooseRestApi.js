@@ -35,8 +35,8 @@ module.exports = function (backendApp) {
 };
 
 const preRead = (req,res,next) => {
-    if (req._ermQueryOptions.query.skip){
-        req._ermQueryOptions.query.skip = req.query.skip * req.query.limit;
+    if (req._ermQueryOptions.skip){
+        req._ermQueryOptions.skip = req.query.skip * req.query.limit;
         next()
     }else{
         next()
