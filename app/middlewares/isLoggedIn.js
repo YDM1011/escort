@@ -20,6 +20,7 @@ module.exports = function (req, res, next) {
                       if (err) return next(err);
                       if (!info) return res.forbidden("forbidden3");
                       req.user = info.toObject();
+                      bodyModyfi(req);
                       next()
                   });
           }
@@ -27,4 +28,9 @@ module.exports = function (req, res, next) {
   } else {
     res.status(401).send("Login is required");
   }
+};
+
+const bodyModyfi = (req) => {
+  req.body['createdBy']['itemId'] = req.user._id;
+  return req.body
 };

@@ -9,8 +9,8 @@ const excludedMap = {}
 
 function getDefaults() {
     return defaults(Object.assign({}, customDefaults) || {}, {
-        prefix: '',
-        version: '',
+        prefix: '/api',
+        version: '/v1',
         idProperty: '_id',
         findOneAndUpdate: true,
         findOneAndRemove: true,
@@ -24,7 +24,7 @@ function getDefaults() {
 }
 
 const restify = function(app, model, opts) {
-    const options = Object.assign({}, opts || {})
+    const options = Object.assign({}, getDefaults(), opts || {})
 
     const access = require('./middleware/access')
     const ensureContentType = require('./middleware/ensureContentType')(options)
