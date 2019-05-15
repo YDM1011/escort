@@ -31,6 +31,7 @@ module.exports = function (req, res, next) {
 };
 
 const bodyModyfi = (req) => {
-  req.body['createdBy']['itemId'] = req.user._id;
+  req.body['createdBy'] = {};
+  req.body.createdBy['itemId'] = req.user._id;
   return req.body
 };
